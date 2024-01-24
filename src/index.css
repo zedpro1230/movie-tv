@@ -6,3 +6,99 @@
     font-family: 'manrope';  /* Define the name you'll use for the font */
     src: url('./assets/fonts/Manrope-VariableFont_wght.ttf')
   }
+
+  .custom-gradient {
+    background: linear-gradient(180deg,rgba(20, 20, 20, 1),rgba(20, 20, 20, 0));
+    /* Adjust the angle and color stops as needed */
+  }
+  .custom-gradient-bottom{
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.00) 0%, #141414 100%);
+  }
+  .custom-gradient-bottom-catgories{
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.00) 0%, #1A1A1A 101.79%);
+  }
+  .custom-gradient-devide-bg{
+    background: linear-gradient(222deg, rgba(229, 0, 0, 0.50) -208.03%, rgba(229, 0, 0, 0.00) 41.32%), #0F0F0F;
+  }
+  .bg-line{
+    background: linear-gradient(90deg, rgba(229, 0, 0, 0.00) 0%, #E50000 16.67%, rgba(229, 0, 0, 0.00) 100%);
+  }
+  .swiper-slide {
+    width: 296px !important;
+    height: 343px; 
+  }
+  @media screen and (max-width: 1439px) {
+    .swiper-pagination-bullet {
+      width: 14px !important;
+      height: 4px !important;
+      background-color: #333333 !important;
+      border-radius: 12px !important;
+    }
+  
+    .swiper-pagination-bullet-active {
+      width: 18px !important;
+      height: 4px !important;
+      background-color: #E50000 !important;
+      border-radius: 12px !important;
+    }
+  
+    .swiper-slide {
+      width: 240px !important; 
+      height: 282px;
+    }
+  }
+  @media screen and (max-width: 540px) {
+    .swiper-pagination-bullet {
+      width: 14px !important;
+      height: 4px !important;
+      background-color: #333333 !important;
+      border-radius: 12px !important;
+    }
+  
+    .swiper-pagination-bullet-active {
+      width: 18px !important;
+      height: 4px !important;
+      background-color: #E50000 !important;
+      border-radius: 12px !important;
+    }
+  
+    .swiper-slide {
+      width: 190px !important; 
+      height: 201px;
+    }
+    .arrows{
+      width: 90px !important;
+      display: flex;
+      justify-content: start;
+  
+    }
+    
+  }
+  
+  
+.arrows{
+  width: 90px !important;
+  display: flex;
+  justify-content: center;
+  gap:1px
+}
+  .swiper-pagination-bullet {
+
+    width: 16px !important;
+    height: 4px !important;
+    background-color:#333333 !important;
+    border-radius: 12px!important;
+  }
+  
+  .swiper-pagination-bullet-active {
+    
+    width: 23px !important;
+    height: 4px !important;
+    background-color:#E50000 !important;
+    border-radius: 12px !important;
+  }
+
+ 
+  /* Style for active dot */
+  
+ 
