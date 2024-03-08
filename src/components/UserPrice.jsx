@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RedBtn from "./RedBtn";
+
 const UserPrice = () => {
   const [tabactive, SetTabactive] = useState("Months");
   const packageChosen = ["Months", "Years"];
@@ -34,7 +34,7 @@ const UserPrice = () => {
       >
         <div className=" flex flex-col h-[auto]">
           <h2
-            className=" font-bold text-font_38 leading-[57px] text-white w-fit 
+            className=" font-[700] text-font_38 leading-[57px] text-white w-fit 
            /*Laptop*/
         max-laptop:text-[28px]
         max-laptop:leading-[42px]

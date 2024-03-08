@@ -11,7 +11,7 @@ const RedBtn = (props) => {
      "
     >
       <p
-        className="text-white font-[600] leading-[27px] 
+        className="text-white font-[600] leading-[27px] w-[auto]
       /*Laptop screen*/ 
       max-laptop:text-[14px] 
       max-laptop:leading-[21px]"

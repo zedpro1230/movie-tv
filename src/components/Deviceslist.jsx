@@ -38,7 +38,7 @@ const devices = [
   },
 ];
 
-const Devides_list = () => {
+const Devideslist = () => {
   return (
     <ul
       className="device-list grid w-full  grid-cols-3 gap-[30px] mt-[80px]  max-laptop:gap-5 
@@ -117,4 +117,4 @@ const Devides_list = () => {
     </ul>
   );
 };
-export default Devides_list;
+export default Devideslist;

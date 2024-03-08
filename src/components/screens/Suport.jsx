@@ -1,11 +1,103 @@
 import Header from "../Header";
-
+import subbg from "../../assets/imgs/support/Sub.png";
+import Contractform from "../Contractform";
+import FAQquestion from "../FAQquestion";
+import Footer from "../Footer";
+import RedBtn from "../RedBtn";
 const Suport = () => {
   return (
-    <section className="home font-manrope  bg-app_bg w-full h-[100vh]">
+    <div className="home font-manrope  bg-app_bg w-full h-[auto] relative flex flex-col gap-[80px]">
       <Header />
-      <div>789</div>
-    </section>
+      <section className="contract-form w-[auto] px-[162px] flex flex-row gap-[80px]">
+        <div className="contract-hero w-[533px] mt-[200px] flex flex-col gap-5">
+          <h1 className="hero-header text-[38px] font-[700] text-[#FFFFFF] leading-[57px]">
+            Welcome to our support page!
+          </h1>
+          <p className="text-[#999999] text-[16px] leading-[24px]">
+            We're here to help you with any problems you may be having with our
+            product.
+          </p>
+          <div className="border-[6px]  rounded-md border-[#262626] border-solid flex justify-center items-center">
+            <img alt="" src={subbg}></img>
+          </div>
+        </div>
+        <Contractform />
+      </section>
+      <section className=" w-full px-[162px] flex flex-col ">
+        <div className="FAQ-header flex  justify-between w-full items-center/mobile/ max-mobile:flex-col max-mobile:gap-5  max-mobile:items-start">
+          <div className=" flex flex-col">
+            <h2
+              className=" font-bold text-font_38 leading-[57px] text-white w-fit
+            /*Laptop*/
+        max-laptop:text-[28px]
+        max-laptop:leading-[42px]
+        max-laptop:w-[auto]
+        /mobile/
+        max-mobile:h-[auto]
+        max-mobile:text-[20px]
+        max-leading-[30px]"
+            >
+              Frequently Asked Questions
+            </h2>
+            <p
+              className="text-font_18 font-normal text-text_grey_2  leading-[27px] mt-[14px] max-w-[1297px]
+        w-[auto]
+             max-laptop:text-[16px]
+        max-laptop:font-[400]
+        max-laptop:leading-[24px]
+        max-laptop:h-[48px]
+        /mobile/
+        max-mobile:h-[auto]
+        max-mobile:text-[14px]
+        max-leading-[21px]"
+            >
+              Got questions? We've got answers! Check out our FAQ section to
+              find answers to the most common questions about StreamVibe.
+            </p>
+          </div>
+        </div>
+        <FAQquestion />
+      </section>
+      <section className="CTA w-full px-[164px] max-laptop:px-[80px] max-mobile:px-4">
+        <div
+          className="w-full rounded-xl h-[313px]  overflow-hidden   items-center] bg-cover
+          flex   justify-around  items-center
+          px-[80px]
+          /mobile/
+          max-mobile:flex-col
+          max-mobile:px-5
+          max-mobile:bg-center"
+          style={{
+            backgroundImage: `url(${require("../../assets/imgs/homepage/bg.png")})`,
+          }}
+        >
+          <div className="w-full flex flex-col /mobile/ max-mobile:text-center">
+            <h2
+              className=" font-bold text-font_38 leading-[57px] text-white w-[auto]
+               /*Laptop*/
+        max-laptop:text-[28px]
+        max-laptop:leading-[42px]
+        max-laptop:w-[auto]
+        "
+            >
+              Frequently Asked Questions
+            </h2>
+            <p
+              className="text-font_18 font-normal text-text_grey_2  leading-[27px] mt-[14px] w-[auto] h-[auto]
+            max-laptop:text-[16px]
+        max-laptop:font-[400]
+        max-laptop:leading-[24px]
+        max-laptop:h-[48px]"
+            >
+              Got questions? We've got answers! Check out our FAQ section to
+              find answers to the most common questions about StreamVibe.
+            </p>
+          </div>
+          <RedBtn name="Start a free trial" />
+        </div>
+      </section>
+      <Footer />
+    </div>
   );
 };
 export default Suport;

@@ -1,44 +1,66 @@
+import newmovie1 from "../../assets/imgs/moviepage/new1.png";
+import newmovie2 from "../../assets/imgs/moviepage/new2.png";
+import newmovie3 from "../../assets/imgs/moviepage/new3.png";
+import newmovie4 from "../../assets/imgs/moviepage/new4.png";
+import newmovie5 from "../../assets/imgs/moviepage/new5.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import React from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import SwiperCore from "swiper";
 import { useRef } from "react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/swiper-bundle.css";
+//
+import arrow_right from "../../assets/imgs/logos/arrow_right.svg";
+import arrow_left from "../../assets/imgs/logos/arrow_left.svg";
 
-// install Swiper modules
-
-import arrow_right from "../assets/imgs/logos/arrow_right.svg";
-import arrow_left from "../assets/imgs/logos/arrow_left.svg";
-const Slider_img = ({ categorieList }) => {
+const NewReleasesSlider = () => {
+  const newReleasesMoivies = [
+    {
+      thumbnail: newmovie1,
+      releaseDay: "14 April 2023",
+    },
+    {
+      thumbnail: newmovie2,
+      releaseDay: "22 April 2023",
+    },
+    {
+      thumbnail: newmovie3,
+      releaseDay: "13 April 2023",
+    },
+    {
+      thumbnail: newmovie4,
+      releaseDay: "19 April 2023",
+    },
+    {
+      thumbnail: newmovie5,
+      releaseDay: "11 April 2023",
+    },
+    {
+      thumbnail: newmovie3,
+      releaseDay: "12 April 2023",
+    },
+    {
+      thumbnail: newmovie4,
+      releaseDay: "19 April 2023",
+    },
+    {
+      thumbnail: newmovie2,
+      releaseDay: "22 April 2023",
+    },
+  ];
   const sliderRef = useRef();
   SwiperCore.use([Pagination]);
-
   return (
-    <div className="relative h-[342px] flex flex-col ">
+    <div className="relative h-[378px]  flex flex-col ">
       <div
-        className="slider-action flex flex-row items-center justify-between px-4  ml-[auto]   absolute z-[40] top-[-200px] right-0
+        className=" flex flex-row items-center justify-between px-4  ml-[auto]   absolute  z-[40] top-[-120px] right-0
         w-[257px] h-[88px] bg-[#0F0F0F] 
         rounded-[12px] border-[#1F1F1F] border-solid border-[1px]
-        /*Laptop*/
-
-        max-laptop:w-[205px]
-        max-laptop:h-[68px]
-        max-laptop:px-[12px]
-        max-laptop:py-[12px]
-        max-laptop:top-[-130px]
-        /mobile/
-        max-mobile:w-[auto]
-        max-mobile:bg-app_bg
-        max-mobile:border-none
-        max-mobile:top-[60%]
-        max-mobile:right-[33%]
-        
         "
       >
         <button
@@ -61,7 +83,7 @@ const Slider_img = ({ categorieList }) => {
             className=" laptop:w-[24px] max-laptop:h-[24px]"
           />
         </button>
-        <div className="arrows "></div>
+        <div className="dot_newreleased"></div>
         <button
           onClick={() => sliderRef.current?.slideNext()}
           className="w-[56px] h-[56px]
@@ -84,12 +106,9 @@ const Slider_img = ({ categorieList }) => {
         </button>
       </div>
       <Swiper
-        // install Swiper modules
-        className=" w-full  flex  "
+        className="movie-trend w-full  flex  "
+        style={{ height: "378px" }}
         modules={[Navigation, Pagination]}
-        // spaceBetween={30}
-        // slidesPerView={5}
-        // slidesPerGroup={2}
         navigation={false}
         onSwiper={(swiper) => (sliderRef.current = swiper)}
         loop={true}
@@ -97,18 +116,19 @@ const Slider_img = ({ categorieList }) => {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
           clickable: true,
-          el: ".arrows",
+          //el: ".genrestop10_arrows",
+          el: ".dot_newreleased",
         }}
         breakpoints={{
           345: {
-            slidesPerView: 5,
+            slidesPerView: 4,
             spaceBetween: 20,
             slidesPerGroup: 1,
             loop: false,
           },
           541: {
             spaceBetween: 20,
-            slidesPerView: 5,
+            slidesPerView: 4,
             slidesPerGroup: 2,
             loop: false,
           },
@@ -124,60 +144,36 @@ const Slider_img = ({ categorieList }) => {
           },
         }}
       >
-        {categorieList.map((type, index) => (
+        {newReleasesMoivies.map((type, index) => (
           <SwiperSlide
             key={index}
             className=" 
-          px-[30px] py-[30px]
+            p-[20px]
            bg-black_bg_10 border border-solid 
            border-[#262626]
            rounded-lg
-
-           max-laptop:py-[24px]
-           max-laptop:px-[24px]
-          /mobile/
-          max-mobile:py-[20px]
-          max-mobile:px-[20px]
+           trend-movie
            "
           >
             <div
               className="flex flex-wrap 
-            w-[237px] h-[252px] gap-1 relative
-            
-            /*Laptop*/
-            max-laptop:w-[192px]
-            max-laptop:h-[210px]
-            /mobile/
-            max-mobile:w-[138px]
-            max-mobile:h-[140px]"
+            w-[243px] h-[270px]  relative gap-5"
             >
-              {type.listMovies.map((movielist, index) => (
-                <img
-                  src={movielist}
-                  alt="..."
-                  className="w-[115px] h-[123px] max-laptop:w-[93px] max-laptop:h-[102px] /moblie/ max-mobile:w-[66px]  max-mobile:h-[66px]"
-                />
-              ))}
-              <div
-                className="fade-bg custom-gradient-bottom-catgories 
-              absolute w-[237px] h-[252px] top-0 left-0 right-0
-              /*Laptop*/
-            max-laptop:w-[192px]
-            max-laptop:h-[210px]
-            /mobile/
-            max-mobile:w-[138px]
-            max-mobile:h-[140px]"
-              ></div>
-            </div>
-            <div className="action flex flex-row w-full justify-between items-center">
-              <span className=" text-white leadding-[27px] text-font_18 font-[600] max-laptop:text-[16px] max-laptop:leading-6">
-                {type.moviekind}
-              </span>
-              <img
-                src={arrow_right}
-                alt=""
-                className="max-laptop:w-[24px] max-laptop:h-[24px]  "
-              />
+              <img alt="" src={type.thumbnail}></img>
+              <div className="flex flex-row   justify-between w-full">
+                <div
+                  className="rounded-[51px] bg-[#141414] w-full p-[10px] 
+                border border-[#262626] border-solid flex gap-2
+                 justify-center"
+                >
+                  <span className="text-[16px] text-[#999999] leading-[24px]">
+                    Released at
+                  </span>
+                  <span className="  text-[#BFBFBF] text-[16px] leading-[24px]">
+                    {type.releaseDay}
+                  </span>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
         ))}
@@ -185,4 +181,5 @@ const Slider_img = ({ categorieList }) => {
     </div>
   );
 };
-export default Slider_img;
+
+export default NewReleasesSlider;

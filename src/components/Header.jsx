@@ -2,7 +2,7 @@ import logo from "../assets/imgs/logos/Logo.png";
 import searchlogo from "../assets/imgs/logos/search.svg";
 import nofication from "../assets/imgs/logos/nofication.svg";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo } from "react";
 import mobieBtn from "../assets/imgs/logos/mobile_show.svg";
 import close from "../assets/imgs/logos/close.svg";
 const Header = () => {
@@ -21,8 +21,16 @@ const Header = () => {
   const [navMobile, SetNavMobile] = useState(false);
 
   useEffect(() => {
-    const currentTab = tabs[linkTabs.indexOf(location.pathname)];
-    setTabactive(currentTab);
+    const currentPath = location.pathname;
+
+    // Check if the current path starts with "/movie"
+    if (currentPath.startsWith("/movie")) {
+      setTabactive("Movies & Shows");
+    } else {
+      // Find the corresponding tab based on the current path
+      const currentTab = tabs[linkTabs.indexOf(currentPath)];
+      setTabactive(currentTab);
+    }
   }, [location, tabs, linkTabs, navMobile]);
 
   const handleTab = (tab, link) => {
@@ -72,7 +80,7 @@ const Header = () => {
       <ul
         className="tabs 
                   flex flex-row 
-                  w-auto pr-[40px] pl-[10px] py-[10px]
+                  w-auto pr-[20px] pl-[20px] py-[10px]
                   mr-[40px] justify-center items-center
                   rounded-xl border-4 border-black_12
                   gap-[30px] h-[75px] bg-nav_bg

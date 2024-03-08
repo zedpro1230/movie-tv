@@ -1,9 +1,4 @@
 import Header from "../Header";
-
-import "react-multi-carousel/lib/styles.css";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 //Hero-imgs
 import movie1 from "../../assets/imgs/homepage/movie1.png";
 import movie2 from "../../assets/imgs/homepage/movie2.png";
@@ -63,10 +58,10 @@ import hor_movie1 from "../../assets/imgs/homepage/hor_movie1.png";
 import hor_movie2 from "../../assets/imgs/homepage/hor_movie2.png";
 import hor_movie3 from "../../assets/imgs/homepage/hor_movie3.png";
 import hor_movie4 from "../../assets/imgs/homepage/hor_movie4.png";
-import bg from "../../assets/imgs/homepage/bg.png";
+
 import React from "react";
-import Slider_img from "../Slider_img";
-import Devides_list from "../Devices_list";
+import Sliderimg from "../Sliderimg";
+import Devideslist from "../Deviceslist";
 import RedBtn from "../RedBtn";
 import FAQquestion from "../FAQquestion";
 import UserPrice from "../UserPrice";
@@ -163,8 +158,15 @@ const categorieList = [
     moviekind: "Adventure",
     listMovies: [ad_movie1, ad_movie2, ad_movie3, ad_movie4],
   },
+  {
+    moviekind: "Adventure",
+    listMovies: [ad_movie1, ad_movie2, ad_movie3, ad_movie4],
+  },
+  {
+    moviekind: "Adventure",
+    listMovies: [ad_movie1, ad_movie2, ad_movie3, ad_movie4],
+  },
 ];
-console.log(categorieList);
 
 const HomePage = () => {
   return (
@@ -172,12 +174,15 @@ const HomePage = () => {
       className="
     home font-manrope  bg-app_bg   w-[100vdw] 
     relative flex flex-col justify-center 
+ 
      overflow-hidden
     items-center gap-[80px]
     /*Laptop screen*/ 
      max-laptop:gap-[60px]
+    
     /mobile/
     max-mobile:gap-[40px]
+   
     "
     >
       <Header />
@@ -386,7 +391,7 @@ const HomePage = () => {
           </p>
         </div>
         <div className="carousel w-full flex flex-col mt-[80px] max-laptop:mt-[60px]">
-          <Slider_img categorieList={categorieList}></Slider_img>
+          <Sliderimg categorieList={categorieList}></Sliderimg>
         </div>
         ;
       </section>
@@ -425,7 +430,7 @@ const HomePage = () => {
           wide range of devices, ensuring that you never miss a moment of
           entertainment.
         </p>
-        <Devides_list />
+        <Devideslist />
       </section>
       <section className="FAQ  w-full px-[164px] flex flex-col max-laptop:px-[80px] max-mobile:px-4">
         <div className="FAQ-header flex  justify-between w-full items-center /mobile/ max-mobile:flex-col max-mobile:gap-5  max-mobile:items-start">

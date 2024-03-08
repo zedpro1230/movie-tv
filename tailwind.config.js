@@ -6,23 +6,18 @@ module.exports = {
       fontFamily: {
         manrope: ["manrope", "sans-serif"],
       },
-      backgroundImage: (theme) => ({
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-linear": "linear-gradient(var(--tw-gradient-stops))",
-        // ...
-      }),
-    },
-    variants: {
-      extend: {
-        backgroundImage: ["responsive", "hover", "focus", "active"],
+      backgroundImage: {
+        "hero-bg": "url('./assets/imgs/moviepage/bg_movie.png')",
       },
     },
+
     backgroundColor: {
       app_bg: "#141414",
       nav_bg: "#0F0F0F",
       tab_bg: "#1A1A1A",
       red_bg: "#E50000",
       black_bg_10: "#1A1A1A",
+      epBG: "rgba(0, 0, 0, 0.5)",
     },
     colors: {
       black_12: "#1F1F1F",

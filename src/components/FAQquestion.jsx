@@ -90,14 +90,20 @@ const FAQquestion = () => {
           /mobile/
           max-mobile:w-full
           max-mobile:p-0
-          
+         
           "
         >
           <div
-            className="flex flex-row gap-5 w-full justify-center items-center max-mediumdesktop:w-[450px] 
-          /mobile/
-          max-mobile:w-full
-          "
+            //   className="flex flex-row gap-5 w-full justify-center items-center max-mediumdesktop:w-[450px]
+            // /mobile/
+            // max-mobile:w-full
+            // max-mediumdesktop:items-center
+            // "
+            className={`${
+              showStates[index]
+                ? "flex flex-row gap-5 w-full justify-center items-start max-mediumdesktop:w-[450px] max-mobile:w-full max-mediumdesktop:items-start"
+                : "flex flex-row gap-5 w-full justify-center items-center max-mediumdesktop:w-[450px] max-mobile:w-full"
+            }`}
           >
             <div
               className="w-[62px] h-[62px] bg-[#1F1F1F] border border-[#262626] 
@@ -106,6 +112,7 @@ const FAQquestion = () => {
             max-mediumdesktop:h-[55px]
             max-mediumdesktop:p-[18px]
             max-mediumdesktop:gap-[18px]
+  
             /*Laptop*/
             max-laptop:w-[50px]
             max-laptop:h-[50px]
@@ -124,11 +131,11 @@ const FAQquestion = () => {
             <div
               className={`${
                 showStates[index]
-                  ? "w-full flex gap-[20px] flex-col mt-[34px]   max-mediumdesktop:w-[500px] /*mobile*/ max-mobile:relative max-mobile:top-[28px] "
+                  ? "w-full flex gap-[20px] flex-col   max-mediumdesktop:w-[500px]   /*mobile*/ max-mobile:relative max-mobile:top-[7px] "
                   : "w-full flex gap-[20px] flex-col max-mediumdesktop:w-[500px] /*Laptop*/ "
               }`}
             >
-              <h3 className="text-[22px] font-medium_weight w-[auto] leading-[33px] text-white /*Laptop*/ max-laptop:text-[20px] max-laptop:leading-[30px] /mobile/ max-mobile:text-[18px] max-mobile:leading-[27px]">
+              <h3 className="text-[22px] font-medium_weight w-[auto] leading-[33px] text-white  /*Laptop*/ max-laptop:text-[20px] max-laptop:leading-[30px] /mobile/ max-mobile:text-[18px] max-mobile:leading-[27px]">
                 {question.question}
               </h3>
               {showStates[index] ? (
