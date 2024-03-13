@@ -21,16 +21,21 @@ const MovieTrendingSlider = ({ id, trend }) => {
   SwiperCore.use([Pagination]);
 
   return (
-    <div className="relative h-[378px]  flex flex-col ">
-      <div
-        className=" flex flex-row items-center justify-between px-4  ml-[auto]   absolute  z-[40] top-[-120px] right-0
+    <div className="relative   flex flex-col gap-[40px]">
+      <div className="flex items-center justify-between max-mobile:flex-col">
+        <h2 className="text-[38px] font-big_weight leading-[57px] text-white">
+          Trending Now
+        </h2>
+        <div
+          className=" flex flex-row items-center justify-between px-4    
         w-[257px] h-[88px] bg-[#0F0F0F] 
         rounded-[12px] border-[#1F1F1F] border-solid border-[1px]
+        max-mobile:border-0 max-mobile:bg-app_bg max-mobile:justify-center
         "
-      >
-        <button
-          onClick={() => sliderRef.current?.slidePrev()}
-          className="w-[56px] h-[56px]
+        >
+          <button
+            onClick={() => sliderRef.current?.slidePrev()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -41,17 +46,17 @@ const MovieTrendingSlider = ({ id, trend }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_left}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
-        <div className={`arrows_trend_${id}`}></div>
-        <button
-          onClick={() => sliderRef.current?.slideNext()}
-          className="w-[56px] h-[56px]
+          >
+            <img
+              src={arrow_left}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+          <div className={`arrows_trend_${id}`}></div>
+          <button
+            onClick={() => sliderRef.current?.slideNext()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -62,13 +67,14 @@ const MovieTrendingSlider = ({ id, trend }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_right}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
+          >
+            <img
+              src={arrow_right}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+        </div>
       </div>
       <Swiper
         className="movie-trend w-full  flex  "
@@ -124,8 +130,8 @@ const MovieTrendingSlider = ({ id, trend }) => {
             }}
           >
             <div
-              className="flex flex-wrap 
-            w-[243px] h-[270px]  relative gap-5"
+              className="flex flex-col
+            w-full   relative gap-5"
             >
               <img alt="" src={type.img}></img>
               <div className="flex flex-row   justify-between w-full">

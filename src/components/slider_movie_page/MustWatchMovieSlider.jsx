@@ -17,20 +17,25 @@ import "swiper/swiper-bundle.css";
 import arrow_right from "../../assets/imgs/logos/arrow_right.svg";
 import arrow_left from "../../assets/imgs/logos/arrow_left.svg";
 
-const MustWatchMovieSlider = ({ id, type }) => {
+const MustWatchMovieSlider = ({ id, type, kind }) => {
   const sliderRef = useRef();
   SwiperCore.use([Pagination]);
   return (
-    <div className="relative h-[500px]   flex flex-col ">
-      <div
-        className=" flex flex-row items-center justify-between px-4  ml-[auto]   absolute  z-[40] top-[-120px] right-0
+    <div className="relative   flex flex-col ">
+      <div className="flex flex-row justify-between items-center max-mobile:flex-col">
+        <h2 className="text-[38px] font-big_weight leading-[57px] text-white">
+          {kind === "movie" ? "Must Watch Show" : "Must Watch Movie"}
+        </h2>
+        <div
+          className=" flex flex-row items-center justify-between px-4    
         w-[257px] h-[88px] bg-[#0F0F0F] 
         rounded-[12px] border-[#1F1F1F] border-solid border-[1px]
+        max-mobile:border-0 max-mobile:bg-app_bg max-mobile:justify-center
         "
-      >
-        <button
-          onClick={() => sliderRef.current?.slidePrev()}
-          className="w-[56px] h-[56px]
+        >
+          <button
+            onClick={() => sliderRef.current?.slidePrev()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -41,17 +46,17 @@ const MustWatchMovieSlider = ({ id, type }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_left}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
-        <div className={`dot_mustwatch_${id}`}></div>
-        <button
-          onClick={() => sliderRef.current?.slideNext()}
-          className="w-[56px] h-[56px]
+          >
+            <img
+              src={arrow_left}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+          <div className={`dot_mustwatch_${id}`}></div>
+          <button
+            onClick={() => sliderRef.current?.slideNext()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -62,16 +67,18 @@ const MustWatchMovieSlider = ({ id, type }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_right}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
+          >
+            <img
+              src={arrow_right}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+        </div>
       </div>
+
       <Swiper
-        className="movie-must-watch w-full  flex  "
+        className="movie-must-watch w-full  flex  mt-[40px]"
         modules={[Navigation, Pagination]}
         navigation={false}
         onSwiper={(swiper) => (sliderRef.current = swiper)}

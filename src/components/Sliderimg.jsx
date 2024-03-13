@@ -17,12 +17,51 @@ import arrow_right from "../assets/imgs/logos/arrow_right.svg";
 import arrow_left from "../assets/imgs/logos/arrow_left.svg";
 const Sliderimg = ({ categorieList }) => {
   const sliderRef = useRef();
+  const widthRef = useRef(null);
+  console.log(widthRef);
   SwiperCore.use([Pagination]);
 
   return (
-    <div className="relative h-[342px] flex flex-col ">
-      <div
-        className="slider-action flex flex-row items-center justify-between px-4  ml-[auto]   absolute z-[40] top-[-200px] right-0
+    <div className="relative  flex flex-col ">
+      <div className=" flex flex-row items-end  justify-between mb-[50px] max-mobile:flex-col max-mobile:items-center">
+        <div className="categories-heading">
+          <h2
+            className=" font-[700] text-font_38 
+          leading-[57px] text-white
+          w-[auto]
+          /*Laptop screen*/
+          max-laptop:text-[28px]
+          max-laptop:leading-[42px]
+          /mobile/
+        max-mobile:h-[auto]
+        max-mobile:text-[20px]
+        max-leading-[30px]
+          "
+          >
+            Explore our wide variety of categories
+          </h2>
+          <p
+            className="text-font_18 font-normal
+           text-text_grey_2  leading-[27px] mt-[14px]
+           w-[auto]
+           max-w-[900px]
+           /*Laptop*/
+          max-laptop:text-[16px]
+          max-laptop:font-[400]
+          max-laptop:leading-[24px]
+          max-laptop:mt-[10px]
+          /mobile/
+        max-mobile:h-[auto]
+        max-mobile:text-[14px]
+        max-leading-[21px]
+           "
+          >
+            Whether you're looking for a comedy to make you laugh, a drama to
+            make you think, or a documentary to learn something new
+          </p>
+        </div>
+        <div
+          className="slider-action flex flex-row items-center justify-between px-4  
         w-[257px] h-[88px] bg-[#0F0F0F] 
         rounded-[12px] border-[#1F1F1F] border-solid border-[1px]
         /*Laptop*/
@@ -40,10 +79,10 @@ const Sliderimg = ({ categorieList }) => {
         max-mobile:right-[33%]
         
         "
-      >
-        <button
-          onClick={() => sliderRef.current?.slidePrev()}
-          className="w-[56px] h-[56px]
+        >
+          <button
+            onClick={() => sliderRef.current?.slidePrev()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -54,17 +93,17 @@ const Sliderimg = ({ categorieList }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_left}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
-        <div className="arrows "></div>
-        <button
-          onClick={() => sliderRef.current?.slideNext()}
-          className="w-[56px] h-[56px]
+          >
+            <img
+              src={arrow_left}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+          <div className="arrows "></div>
+          <button
+            onClick={() => sliderRef.current?.slideNext()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -75,24 +114,25 @@ const Sliderimg = ({ categorieList }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_right}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
+          >
+            <img
+              src={arrow_right}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+        </div>
       </div>
       <Swiper
         // install Swiper modules
-        className=" w-full  flex  "
+        className=" w-full  flex "
         modules={[Navigation, Pagination]}
         // spaceBetween={30}
         // slidesPerView={5}
         // slidesPerGroup={2}
         navigation={false}
         onSwiper={(swiper) => (sliderRef.current = swiper)}
-        loop={false}
+        loop={true}
         pagination={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -126,12 +166,13 @@ const Sliderimg = ({ categorieList }) => {
       >
         {categorieList.map((type, index) => (
           <SwiperSlide
+            ref={widthRef}
             key={index}
             className=" 
           px-[30px] py-[30px]
            bg-black_bg_10 border border-solid 
            border-[#262626]
-           rounded-lg
+           rounded-lg w-[500px] !important
 
            max-laptop:py-[24px]
            max-laptop:px-[24px]
@@ -141,33 +182,20 @@ const Sliderimg = ({ categorieList }) => {
            "
           >
             <div
-              className="flex flex-wrap 
-            w-[237px] h-[252px] gap-1 relative
-            
-            /*Laptop*/
-            max-laptop:w-[192px]
-            max-laptop:h-[210px]
-            /mobile/
-            max-mobile:w-[138px]
-            max-mobile:h-[140px]"
+              className=" grid grid-cols-2
+            w-full h-[252px] gap-1 relative"
             >
               {type.listMovies.map((movielist, index) => (
                 <img
                   key={index}
                   src={movielist}
                   alt="..."
-                  className="w-[115px] h-[123px] max-laptop:w-[93px] max-laptop:h-[102px] /moblie/ max-mobile:w-[66px]  max-mobile:h-[66px]"
+                  className="w-full h-[123px]"
                 />
               ))}
               <div
                 className="fade-bg custom-gradient-bottom-catgories 
-              absolute w-[237px] h-[252px] top-0 left-0 right-0
-              /*Laptop*/
-            max-laptop:w-[192px]
-            max-laptop:h-[210px]
-            /mobile/
-            max-mobile:w-[138px]
-            max-mobile:h-[140px]"
+              absolute w-[237px] h-[252px] top-0 left-0 right-0"
               ></div>
             </div>
             <div className="action flex flex-row w-full justify-between items-center">

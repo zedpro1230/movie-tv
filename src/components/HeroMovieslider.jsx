@@ -24,6 +24,7 @@ import auquaman from "../assets/imgs/moviepage/aquaman.png";
 const HeroMoviesilder = () => {
   const sliderRef = useRef();
   SwiperCore.use([Pagination]);
+
   const movieBests = [
     {
       name: "Avenger : End Game",
@@ -47,9 +48,9 @@ const HeroMoviesilder = () => {
     },
   ];
   return (
-    <div className="relative  flex flex-col h-[835px] rounded-xl z-40">
+    <div className="relative  flex flex-col h-[835px] rounded-xl z-40 max-mobile:h-[468px]">
       <Swiper
-        className="hero-slider w-full  flex rounded-xl relative z-50"
+        className="hero-slider w-full  flex rounded-xl relative z-50 max-mobile:h-[468px] max-mobile:items-end"
         modules={[Navigation, Pagination]}
         navigation={false}
         onSwiper={(swiper) => (sliderRef.current = swiper)}
@@ -88,44 +89,49 @@ const HeroMoviesilder = () => {
         {movieBests.map((movie, index) => (
           <SwiperSlide
             key={index}
-            className="w-full h-full bg-cover bg-no-repeat bg-center "
+            className="w-full h-full bg-cover bg-no-repeat bg-center  "
             style={{ backgroundImage: `url(${movie.img})` }}
           >
-            <div className="flex flex-col gap-7   items-center text-center pt-[450px]  ">
-              <h1 className="movie_name text-[38px]   font-big_weight leadind-[57px] text-white ">
+            <div className="flex flex-col gap-7   items-center text-center pt-[450px] max-mobile:pt-[200px] ">
+              <h1 className="movie_name text-[38px]   font-big_weight leadind-[57px] text-white max-mobile:text-[28px] max-mobile:leading-9">
                 {movie.name}
               </h1>
-              <p className="movie_des text-[18px]  font-medium_weight leadind-[27px] text-[#999999] w-[auto] max-w-[1194px]">
+              <p className="movie_des text-[18px]  font-medium_weight leadind-[27px] text-[#999999] w-[auto] max-w-[1194px] max-mobile:hidden">
                 {movie.describe}
               </p>
-              <div className="movie_action flex flex-row gap-5">
-                <button
-                  className="w-fit py-[14px] px-[27px] flex gap-[10px]
-                    bg-red_bg h-[56px] rounded-lg items-center justify-center hover:opacity-75"
-                >
-                  <img alt="" src={icon_play}></img>
-                  <p className="text-white font-[600] leading-[27px]">
-                    Play Now
-                  </p>
-                </button>
-                <button
-                  className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
+              <div className="movie_action flex flex-row gap-5 max-mobile:flex-col">
+                <div className="flex">
+                  <button
+                    className="w-fit py-[14px] px-[27px] flex gap-[10px] 
+                    bg-red_bg h-[56px] rounded-lg items-center justify-center hover:opacity-75
+                    max-mobile:w-[310px]"
+                  >
+                    <img alt="" src={icon_play}></img>
+                    <p className="text-white font-[600] leading-[27px]">
+                      Play Now
+                    </p>
+                  </button>
+                </div>
+                <div className="flex flex-row gap-[10px] max-mobile:justify-center">
+                  <button
+                    className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
                     flex justify-center items-center p-[14px] border border-solid border-[#262626]"
-                >
-                  <img alt="" src={add_icon}></img>
-                </button>
-                <button
-                  className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
+                  >
+                    <img alt="" src={add_icon}></img>
+                  </button>
+                  <button
+                    className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
                     flex justify-center items-center p-[14px] border border-solid border-[#262626]"
-                >
-                  <img alt="" src={like_icon}></img>
-                </button>
-                <button
-                  className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
+                  >
+                    <img alt="" src={like_icon}></img>
+                  </button>
+                  <button
+                    className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
                     flex justify-center items-center p-[14px] border border-solid border-[#262626]"
-                >
-                  <img alt="" src={sound_icon}></img>
-                </button>
+                  >
+                    <img alt="" src={sound_icon}></img>
+                  </button>
+                </div>
               </div>
             </div>
           </SwiperSlide>
@@ -134,7 +140,7 @@ const HeroMoviesilder = () => {
       <div
         className="slider-action flex flex-row items-center justify-between px-4  absolute 
                     ml-[auto] z-[20] bottom-[0] right-[45px] left-[45px]
-                    w-[auto] h-[88px] "
+                    w-[auto] h-[88px] max-mobile:hidden "
       >
         <button
           onClick={() => sliderRef.current?.slidePrev()}
@@ -178,7 +184,7 @@ const HeroMoviesilder = () => {
           />
         </button>
       </div>
-      <div className="custom-gradient-bottom w-full h-[150px] absolute z-[10]  bottom-0"></div>
+      <div className="custom-gradient-bottom w-full h-[150px] absolute z-[10]  bottom-0 max-mobile:bottom-[-4px]"></div>
     </div>
   );
 };

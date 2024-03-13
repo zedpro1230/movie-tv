@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -76,26 +76,26 @@ function Reviews() {
     },
   ];
   return (
-    <div className=" h-[auto] flex flex-col bg-[#1A1A1A] rounded-xl border border-[#262626] border-solid justify-center items-center p-[30px]">
+    <div className=" h-[auto] flex flex-col bg-[#1A1A1A] rounded-xl border border-[#262626] border-solid justify-center items-center p-[30px] max-mobile:p-[20px]">
       <div className="flex flex-row items-center justify-between w-[100%] p-[20px]">
-        <span className="text-[#999999] text-[18px] leading-[27px] font-[500]">
+        <span className="text-[#999999] text-[18px] leading-[27px] font-[500] max-mobile:text-[14px] max-mobile:leading-5">
           Review
         </span>
         <button
           className="flex flex-row items-center w-[204px] h-[58px] 
-        gap-1 rounded-lg bg-[#141414] border border-solid border-[#262626]
-        justify-center"
+        gap-1 rounded-lg bg-[#141414] border border-solid border-[#262626] 
+        justify-center max-mobile:w-fit max-mobile:p-5"
         >
           <span>
             <img alt="" src={addreview}></img>
           </span>
-          <p className="text-[#FFFFFF] text-[18px] font-[500] leading-[28px]">
+          <p className="text-[#FFFFFF] text-[18px] font-[500] leading-[28px] max-mobile:text-[14px] max-mobile:leading-5">
             Add your review
           </p>
         </button>
       </div>
       <Swiper
-        className="ReviewSwiper w-[962px]  flex"
+        className="ReviewSwiper w-full  flex"
         modules={[Navigation, Pagination]}
         navigation={false}
         onSwiper={(swiper) => (sliderRef.current = swiper)}
@@ -108,16 +108,16 @@ function Reviews() {
         }}
         breakpoints={{
           345: {
-            slidesPerView: 4,
+            slidesPerView: 1,
             spaceBetween: 20,
-            slidesPerGroup: 1,
-            loop: false,
+            slidesPerGroup: 2,
+            loop: true,
           },
           541: {
             spaceBetween: 20,
             slidesPerView: 1,
-            slidesPerGroup: 1,
-            loop: false,
+            slidesPerGroup: 2,
+            loop: true,
           },
           1421: {
             spaceBetween: 30,
@@ -132,57 +132,57 @@ function Reviews() {
         }}
       >
         {reviewLists.map((review, index) => (
-          <SwiperSlide className="slide-review bg-[#0F0F0F] rounded-xl border border-[#262626] border-solid p-[30px]">
-            <div className="flex flex-col gap-4">
+          <SwiperSlide className="slide-review bg-[#0F0F0F] rounded-xl border border-[#262626] border-solid p-[30px] max-mobile:p-[24px]">
+            <div className="flex flex-col gap-4 ">
               <div className="review-header flex flex-row justify-between items-center">
                 <div className="flex flex-col">
-                  <span className="text-[#FFFFFF] text-[20px] font-[500] leading-[30px]">
+                  <span className="text-[#FFFFFF] text-[20px] font-[500] leading-[30px] max-mobile:text-[16px] max-mobile:leading-6">
                     {review.name}
                   </span>
-                  <span className="text-[#999999] text-[18px] font-[500] leading-[27px]">
+                  <span className="text-[#999999] text-[18px] font-[500] leading-[27px]  max-mobile:text-[14px] max-mobile:leading-5">
                     {review.place}
                   </span>
                 </div>
                 {review.rate === 4.5 ? (
                   <div
-                    className="flex flex-row items-center w-[148px] h-[39px] 
+                    className="flex flex-row items-center w-[148px] h-[39px] p-[4px]
                   bg-[#141414] border border-[#262626] border-solid rounded-[51px] 
-                  justify-center gap-1"
+                  justify-center gap-2 max-mobile:w-[112px]"
                   >
                     <ul className="flex flex-row">
                       <li>
                         <img
                           alt=""
                           src={redstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px] max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                       <li>
                         <img
                           alt=""
                           src={redstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px]  max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                       <li>
                         <img
                           alt=""
                           src={redstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px]  max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                       <li>
                         <img
                           alt=""
                           src={redstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px]  max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                       <li>
                         <img
                           alt=""
                           src={halfstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px]  max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                     </ul>
@@ -192,44 +192,44 @@ function Reviews() {
                   </div>
                 ) : (
                   <div
-                    className="flex flex-row items-center w-[148px] h-[39px] 
+                    className="flex flex-row items-center w-[148px] h-[39px] p-[4px]
                   bg-[#141414] border border-[#262626] border-solid rounded-[51px] 
-                  justify-center gap-1"
+                  justify-center gap-2 max-mobile:w-[112px] "
                   >
                     <ul className="flex flex-row">
                       <li>
                         <img
                           alt=""
                           src={redstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px]  max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                       <li>
                         <img
                           alt=""
                           src={redstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px]  max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                       <li>
                         <img
                           alt=""
                           src={redstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px]  max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                       <li>
                         <img
                           alt=""
                           src={redstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px]  max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                       <li>
                         <img
                           alt=""
                           src={redstar}
-                          className="w-[18px] h-18px]"
+                          className="w-[18px] h-18px]  max-mobile:w-[14px] max-mobile:h-[14px]"
                         ></img>
                       </li>
                     </ul>
@@ -240,7 +240,7 @@ function Reviews() {
                 )}
               </div>
               <div className="review-content">
-                <p className="text-[#999999] text-[18px] leading-[27px] font-[400] w-[auto]">
+                <p className="text-[#999999] text-[18px] leading-[27px] font-[400] w-[auto] max-mobile:text-[14px] max-mobile:leading-5">
                   {review.content}
                 </p>
               </div>
@@ -264,8 +264,7 @@ function Reviews() {
              max-laptop:w-[44px]
              max-laptop:h-[44px]
              max-laptop:p-[10px]
-             /mobile/
-             max-mobile:hidden
+            
              "
         >
           <img
@@ -286,8 +285,7 @@ function Reviews() {
              max-laptop:w-[44px]
              max-laptop:h-[44px]
              max-laptop:p-[10px]
-             /mobile/
-             max-mobile:hidden
+             
              "
         >
           <img

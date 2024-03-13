@@ -173,8 +173,7 @@ const HomePage = () => {
     <div
       className="
     home font-manrope  bg-app_bg   w-[100vdw] 
-    relative flex flex-col justify-center 
- 
+    relative flex flex-col 
      overflow-hidden
     items-center gap-[80px]
     /*Laptop screen*/ 
@@ -323,7 +322,7 @@ const HomePage = () => {
           w-[auto] h-[64px] flex flex-row bg-red_bg  
           rounded-[8px] justify-center items-center 
            border-[none]
-          px-[24px] py-[24px] gap-[4px]
+          px-[24px] py-[24px] gap-[10px]
            hover:opacity-70
            
            /*Laptop screen*/
@@ -347,57 +346,17 @@ const HomePage = () => {
         </div>
       </section>
       <section
-        className="categories w-full px-[164px]
-      /*Laptop screen*/
-      max-laptop:px-[80px]
-      /mobile/
-      max-mobile:px-4
+        className="categories  max-w-[1597px] w-[83%] mx-[auto]
       "
       >
-        <div className="categories-heading">
-          <h2
-            className=" font-bold text-font_38 
-          leading-[57px] text-white
-          w-[auto]
-          /*Laptop screen*/
-          max-laptop:text-[28px]
-          max-laptop:leading-[42px]
-          /mobile/
-        max-mobile:h-[auto]
-        max-mobile:text-[20px]
-        max-leading-[30px]
-          "
-          >
-            Explore our wide variety of categories
-          </h2>
-          <p
-            className="text-font_18 font-normal
-           text-text_grey_2  leading-[27px] mt-[14px]
-           w-[auto]
-           max-w-[900px]
-           /*Laptop*/
-          max-laptop:text-[16px]
-          max-laptop:font-[400]
-          max-laptop:leading-[24px]
-          max-laptop:mt-[10px]
-          /mobile/
-        max-mobile:h-[auto]
-        max-mobile:text-[14px]
-        max-leading-[21px]
-           "
-          >
-            Whether you're looking for a comedy to make you laugh, a drama to
-            make you think, or a documentary to learn something new
-          </p>
-        </div>
         <div className="carousel w-full flex flex-col mt-[80px] max-laptop:mt-[60px]">
           <Sliderimg categorieList={categorieList}></Sliderimg>
         </div>
         ;
       </section>
-      <section className="device w-full px-[164px] max-laptop:px-[80px] max-mobile:px-[16px]">
+      <section className="device  max-w-[1597px] w-[83%] mx-[auto]">
         <h2
-          className=" font-bold text-font_38 leading-[57px] text-white w-[1297px]
+          className=" font-[700] text-font_38 leading-[57px] text-white w-[1297px]
         /*Laptop*/
         max-laptop:text-[28px]
         max-laptop:leading-[42px]
@@ -420,7 +379,6 @@ const HomePage = () => {
         max-laptop:leading-[24px]
         max-laptop:h-[48px]
         /mobile/
-        max-mobile:h-[auto]
         max-mobile:text-[14px]
         max-leading-[21px]
         "
@@ -432,11 +390,11 @@ const HomePage = () => {
         </p>
         <Devideslist />
       </section>
-      <section className="FAQ  w-full px-[164px] flex flex-col max-laptop:px-[80px] max-mobile:px-4">
+      <section className="FAQ   max-w-[1597px] w-[83%] mx-[auto]">
         <div className="FAQ-header flex  justify-between w-full items-center /mobile/ max-mobile:flex-col max-mobile:gap-5  max-mobile:items-start">
           <div className=" flex flex-col">
             <h2
-              className=" font-bold text-font_38 leading-[57px] text-white w-fit
+              className=" font-[700] text-font_38 leading-[57px] text-white w-fit
             /*Laptop*/
         max-laptop:text-[28px]
         max-laptop:leading-[42px]
@@ -468,10 +426,10 @@ const HomePage = () => {
         </div>
         <FAQquestion />
       </section>
-      <section className="pricing w-full px-[164px] max-laptop:px-[80px] max-mobile:px-4">
+      <section className="pricing max-w-[1597px] w-[83%] mx-[auto]">
         <UserPrice />
       </section>
-      <section className="CTA w-full px-[164px] max-laptop:px-[80px] max-mobile:px-4">
+      <section className="CTA max-w-[1597px] w-[83%] mx-[auto]">
         <div
           className="w-full rounded-xl h-[313px]  overflow-hidden   items-center] bg-cover
           flex   justify-around  items-center

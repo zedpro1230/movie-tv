@@ -67,16 +67,21 @@ const GenresSliderTop10 = ({ sliderId }) => {
     },
   ];
   return (
-    <div className="relative h-[378px] flex flex-col ">
-      <div
-        className="genrestop10_slider flex flex-row items-center justify-between px-4  ml-[auto]   absolute  z-[40] top-[-120px] right-0
+    <div className="relative  flex flex-col gap-[40px]">
+      <div className="flex flex-row items-center justify-between max-mobile:flex-col">
+        <h2 className="text-[38px] font-big_weight leading-[57px] text-white ">
+          Popular Top 10 In Genres
+        </h2>
+        <div
+          className="genrestop10_slider flex flex-row items-center justify-between px-4  
         w-[257px] h-[88px] bg-[#0F0F0F] 
         rounded-[12px] border-[#1F1F1F] border-solid border-[1px]
+        max-mobile:border-0 max-mobile:bg-app_bg max-mobile:justify-center
         "
-      >
-        <button
-          onClick={() => sliderRef.current?.slidePrev()}
-          className="w-[56px] h-[56px]
+        >
+          <button
+            onClick={() => sliderRef.current?.slidePrev()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -87,17 +92,17 @@ const GenresSliderTop10 = ({ sliderId }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_left}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
-        <div className={`genrestop10_arrows_${sliderId}`}></div>
-        <button
-          onClick={() => sliderRef.current?.slideNext()}
-          className="w-[56px] h-[56px]
+          >
+            <img
+              src={arrow_left}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+          <div className={`genrestop10_arrows_${sliderId}`}></div>
+          <button
+            onClick={() => sliderRef.current?.slideNext()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -108,14 +113,16 @@ const GenresSliderTop10 = ({ sliderId }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_right}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
+          >
+            <img
+              src={arrow_right}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+        </div>
       </div>
+
       <Swiper
         className="genrestop10-slider w-full  flex  "
         style={{ height: "378px" }}
@@ -166,8 +173,7 @@ const GenresSliderTop10 = ({ sliderId }) => {
            "
           >
             <div
-              className="flex flex-wrap 
-            w-[292px] h-[252px] gap-1 relative
+              className="grid grid-cols-2 w-full gap-1 relative
             
             "
             >
@@ -176,16 +182,16 @@ const GenresSliderTop10 = ({ sliderId }) => {
                   key={index}
                   src={movielist}
                   alt="..."
-                  className="w-[141px] h-[121px]"
+                  className="w-full h-[121px]"
                 />
               ))}
               <div
                 className="fade-bg custom-gradient-bottom-catgories 
-              absolute w-[292px] h-[252px] top-0 left-0 right-0
+              absolute w-full h-[248px] top-0 left-0 right-0
              "
               ></div>
             </div>
-            <div className="action flex flex-row w-full justify-between items-center">
+            <div className="action flex flex-row w-full justify-between items-center mt-[15px]">
               <div className="flex flex-col">
                 <span
                   className="w-[66px] h-[25px] flex justify-center 

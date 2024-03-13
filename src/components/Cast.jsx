@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -38,13 +38,13 @@ function Cast() {
     actor8,
   ];
   return (
-    <div className="relative h-[291px] flex flex-col bg-[#1A1A1A] rounded-xl border border-[#262626] border-solid justify-center items-center p-[30px]">
-      <div className="flex flex-row items-center justify-between w-[100%] p-[20px]">
+    <div className="relative h-[291px]  flex flex-col bg-[#1A1A1A] rounded-xl border border-[#262626] border-solid justify-center items-center p-[30px] max-mobile:p-[20px]">
+      <div className="flex flex-row items-center justify-between w-full py-[20px]">
         <span className="text-[#999999] text-[18px] leading-[27px] font-[500]">
           Cast
         </span>
         <div
-          className=" flex gap-3 flex-row items-center justify-between px-4  ml-[auto]   
+          className=" flex gap-3 flex-row items-center justify-between pl-4     
         w-[auto] h-[88px] 
         "
         >
@@ -59,8 +59,7 @@ function Cast() {
              max-laptop:w-[44px]
              max-laptop:h-[44px]
              max-laptop:p-[10px]
-             /mobile/
-             max-mobile:hidden
+             
              "
           >
             <img
@@ -80,8 +79,7 @@ function Cast() {
              max-laptop:w-[44px]
              max-laptop:h-[44px]
              max-laptop:p-[10px]
-             /mobile/
-             max-mobile:hidden
+           
              "
           >
             <img
@@ -94,7 +92,7 @@ function Cast() {
       </div>
 
       <Swiper
-        className="CastSwiper w-[962px]  flex"
+        className="CastSwiper w-full  flex"
         modules={[Navigation, Pagination]}
         navigation={false}
         onSwiper={(swiper) => (sliderRef.current = swiper)}
@@ -106,21 +104,23 @@ function Cast() {
         }}
         breakpoints={{
           345: {
-            slidesPerView: 4,
+            slidesPerView: 9,
             spaceBetween: 20,
-            slidesPerGroup: 1,
-            loop: false,
+            slidesPerGroup: 2,
+
+            loop: true,
           },
           541: {
             spaceBetween: 20,
-            slidesPerView: 4,
+            slidesPerView: 9,
             slidesPerGroup: 2,
-            loop: false,
+            loop: true,
           },
           1421: {
             spaceBetween: 30,
-            slidesPerView: 4,
+            slidesPerView: 9,
             slidesPerGroup: 2,
+            loop: true,
           },
           1920: {
             spaceBetween: 30,
@@ -131,7 +131,11 @@ function Cast() {
       >
         {actorLists.map((actor, index) => (
           <SwiperSlide className="slide-width-200">
-            <img alt="" src={actor} className="w-[109px] h-[103px]"></img>
+            <img
+              alt=""
+              src={actor}
+              className="w-[103px] h-[109px] max-laptop:w-[87px] max-laptop:h-[89px]"
+            ></img>
           </SwiperSlide>
         ))}
       </Swiper>

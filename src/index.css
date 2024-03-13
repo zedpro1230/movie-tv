@@ -27,53 +27,7 @@
     width: 296px !important;
     height: 343px; 
   }
-  @media screen and (max-width: 1439px) {
-    .swiper-pagination-bullet {
-      width: 14px !important;
-      height: 4px !important;
-      background-color: #333333 !important;
-      border-radius: 12px !important;
-    }
-  
-    .swiper-pagination-bullet-active {
-      width: 18px !important;
-      height: 4px !important;
-      background-color: #E50000 !important;
-      border-radius: 12px !important;
-    }
-  
-    .swiper-slide {
-      width: 240px !important; 
-      height: 282px;
-    }
-  }
-  @media screen and (max-width: 540px) {
-    .swiper-pagination-bullet {
-      width: 14px !important;
-      height: 4px !important;
-      background-color: #333333 !important;
-      border-radius: 12px !important;
-    }
-  
-    .swiper-pagination-bullet-active {
-      width: 18px !important;
-      height: 4px !important;
-      background-color: #E50000 !important;
-      border-radius: 12px !important;
-    }
-  
-    .swiper-slide {
-      width: 190px !important; 
-      height: 201px;
-    }
-    .arrows{
-      width: 90px !important;
-      display: flex;
-      justify-content: start;
-  
-    }
-    
-  }
+ 
   
   
 .arrows{
@@ -103,13 +57,13 @@
   height: 835px; 
 }
 
-.genres_arrows_1,.genres_arrows_2{
+.genres_arrows_1,.genres_arrows_2,.genres_arrows_3{
   width: 90px !important;
   display: flex;
   justify-content: center;
   gap:1px
 }
-.arrows_trend_1,.arrows_trend_2{
+.arrows_trend_1,.arrows_trend_2,.arrows_trend_3{
   width: 90px !important;
   display: flex;
   justify-content: center;
@@ -120,7 +74,7 @@
     height: 342px;
 }
 
-.genrestop10_arrows_1,.genrestop10_arrows_2{
+.genrestop10_arrows_1,.genrestop10_arrows_2,.genrestop10_arrows_3{
   width: 90px !important;
   display: flex;
   justify-content: center;
@@ -194,7 +148,7 @@
   border-radius: 12px !important;
 }
 /*  */
-.dot_newreleased {
+.dot_newreleased_1, .dot_newreleased_2{
   width: 90px !important;
   display: flex;
   justify-content: center;
@@ -215,7 +169,7 @@
   border-radius: 12px !important;
 }
 /*  */
-.dot_mustwatch_1,.dot_mustwatch_2  {
+.dot_mustwatch_1,.dot_mustwatch_2,.dot_mustwatch_3  {
   width: 90px !important;
   display: flex;
   justify-content: center;
@@ -304,7 +258,7 @@
 
 .slide-review{
   width: 471px !important;
-  height: 265px !important;
+  
   margin: 0 12px 0 0px  !important;
 }
 .review_indicator .swiper-pagination-bullet {
@@ -324,6 +278,81 @@
   display: flex;
   justify-content: center;
   gap:1px
+}
+
+@media screen and (max-width: 1439px) {
+  .swiper-pagination-bullet {
+    width: 14px !important;
+    height: 4px !important;
+    background-color: #333333 !important;
+    border-radius: 12px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 18px !important;
+    height: 4px !important;
+    background-color: #E50000 !important;
+    border-radius: 12px !important;
+  }
+
+  .swiper-slide {
+    width: 240px !important; 
+    height: 282px;
+  }
+  .slide-review{
+    width: 377px !important;
+    margin: 0 12px 0 0px  !important;
+  }
+}
+@media screen and (max-width: 780px) {
+  .swiper-pagination-bullet {
+    width: 14px !important;
+    height: 4px !important;
+    background-color: #333333 !important;
+    border-radius: 12px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 18px !important;
+    height: 4px !important;
+    background-color: #E50000 !important;
+    border-radius: 12px !important;
+  }
+
+  .swiper-slide {
+    width: 190px !important; 
+    height: 201px;
+  }
+  .arrows{
+    width: 90px !important;
+    display: flex;
+    justify-content: flex-start;
+   
+
+  }
+  .genres_arrows_3,
+  .genrestop10_arrows_3,
+  .arrows_trend_3 ,
+  .dot_newreleased_2,
+  .dot_mustwatch_3{
+      margin:  0 !important;
+      gap:0 !important
+  }
+  .genres_arrows_3 .swiper-pagination-bullet,
+  .genrestop10_arrows_3 .swiper-pagination-bullet,
+  .arrows_trend_3 .swiper-pagination-bullet,
+  .dot_newreleased_2 .swiper-pagination-bullet,
+  .dot_mustwatch_3 .swiper-pagination-bullet{
+    margin: 0 !important;
+  }
+  
+  .hero-slider .swiper-slide{
+    height: 468px !important;
+  }
+  .slide-review{
+    width: 280px !important;
+    margin: 0 12px 0 0px  !important;
+  }
 }
 
 

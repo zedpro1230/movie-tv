@@ -71,15 +71,19 @@ const GenresSlider = ({ id }) => {
     },
   ];
   return (
-    <div className="relative h-[342px] flex flex-col ">
-      <div
-        className="genres_slider flex flex-row items-center justify-between px-4  ml-[auto]   absolute  z-[40] top-[-120px] right-0
+    <div className="relative  flex flex-col gap-[40px]">
+      <div className="flex flex-row items-center justify-between max-mobile:flex-col">
+        <h2 className="text-[38px] font-big_weight leading-[57px] text-white">
+          Our Genres
+        </h2>
+        <div
+          className="genres_slider flex flex-row items-center justify-between px-4   
         w-[257px] h-[88px] bg-[#0F0F0F] 
-        rounded-[12px] border-[#1F1F1F] border-solid border-[1px] "
-      >
-        <button
-          onClick={() => sliderRef.current?.slidePrev()}
-          className="w-[56px] h-[56px]
+        rounded-[12px] border-[#1F1F1F] border-solid border-[1px] max-mobile:border-0 max-mobile:bg-app_bg max-mobile:justify-center"
+        >
+          <button
+            onClick={() => sliderRef.current?.slidePrev()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -90,17 +94,17 @@ const GenresSlider = ({ id }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_left}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
-        <div className={`genres_arrows_${id}`}></div>
-        <button
-          onClick={() => sliderRef.current?.slideNext()}
-          className="w-[56px] h-[56px]
+          >
+            <img
+              src={arrow_left}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+          <div className={`genres_arrows_${id}`}></div>
+          <button
+            onClick={() => sliderRef.current?.slideNext()}
+            className="w-[56px] h-[56px]
              bg-[#1A1A1A] rounded-lg
              flex items-center justify-center
              
@@ -111,13 +115,14 @@ const GenresSlider = ({ id }) => {
              /mobile/
              max-mobile:hidden
              "
-        >
-          <img
-            src={arrow_right}
-            alt=""
-            className=" laptop:w-[24px] max-laptop:h-[24px]"
-          />
-        </button>
+          >
+            <img
+              src={arrow_right}
+              alt=""
+              className=" laptop:w-[24px] max-laptop:h-[24px]"
+            />
+          </button>
+        </div>
       </div>
       <Swiper
         className="genres-slider w-full  flex  "
@@ -172,36 +177,17 @@ const GenresSlider = ({ id }) => {
           max-mobile:px-[20px]
            "
           >
-            <div
-              className="flex flex-wrap 
-            w-[237px] h-[252px] gap-1 relative
-            
-            /*Laptop*/
-            max-laptop:w-[192px]
-            max-laptop:h-[210px]
-            /mobile/
-            max-mobile:w-[138px]
-            max-mobile:h-[140px]"
-            >
+            <div className="grid grid-cols-2 w-full gap-[2px] ">
               {type.listMovies.map((movielist, index) => (
-                <img
-                  src={movielist}
-                  alt="..."
-                  className="w-[105px] h-[123px] max-laptop:w-[93px] max-laptop:h-[102px] /moblie/ max-mobile:w-[66px]  max-mobile:h-[66px]"
-                />
+                <img src={movielist} alt="..." className="w-full h-[123px]" />
               ))}
               <div
                 className="fade-bg custom-gradient-bottom-catgories 
-              absolute w-[237px] h-[252px] top-0 left-0 right-0
-              /*Laptop*/
-            max-laptop:w-[192px]
-            max-laptop:h-[210px]
-            /mobile/
-            max-mobile:w-[138px]
-            max-mobile:h-[140px]"
+              absolute w-full h-[280px] top-0 left-0 right-0
+            "
               ></div>
             </div>
-            <div className="action flex flex-row w-full justify-between items-center">
+            <div className="action flex flex-row w-full justify-between items-center mt-[15px]">
               <span className=" text-white leadding-[27px] text-font_18 font-[600] max-laptop:text-[16px] max-laptop:leading-6">
                 {type.moviekind}
               </span>

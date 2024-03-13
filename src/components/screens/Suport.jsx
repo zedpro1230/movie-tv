@@ -2,32 +2,32 @@ import Header from "../Header";
 import subbg from "../../assets/imgs/support/Sub.png";
 import Contractform from "../Contractform";
 import FAQquestion from "../FAQquestion";
-import Footer from "../Footer";
+import Footer2 from "../Footer2";
 import RedBtn from "../RedBtn";
 const Suport = () => {
   return (
     <div className="home font-manrope  bg-app_bg w-full h-[auto] relative flex flex-col gap-[80px]">
       <Header />
-      <section className="contract-form w-[auto] px-[162px] flex flex-row gap-[80px]">
-        <div className="contract-hero w-[533px] mt-[200px] flex flex-col gap-5">
-          <h1 className="hero-header text-[38px] font-[700] text-[#FFFFFF] leading-[57px]">
-            Welcome to our support page!
+      <section className="contract-form max-w-[1596px] w-[83%] mx-[auto] flex flex-row gap-[20px] mt-[200px] justify-between max-mobile:flex-col">
+        <div className="contract-hero w-[35%]  flex flex-col  gap-5 max-mobile:w-full">
+          <h1 className="hero-header text-[38px] font-[700] text-[#FFFFFF] leading-[57px] w-[70%] max-laptop:text-[38px] max-laptop:leading-[57px]">
+            Welcome to our suport page!
           </h1>
-          <p className="text-[#999999] text-[16px] leading-[24px]">
+          <p className="text-[#999999] text-[16px] leading-[24px] w-full max-mobile:text-[18px] max-mobile:leading-6">
             We're here to help you with any problems you may be having with our
             product.
           </p>
-          <div className="border-[6px]  rounded-md border-[#262626] border-solid flex justify-center items-center">
-            <img alt="" src={subbg}></img>
+          <div className="border-[6px] w-full  overflow-hidden rounded-md border-[#262626] border-solid flex justify-center items-center  max-mobile:w-fit">
+            <img alt="" src={subbg} className=""></img>
           </div>
         </div>
         <Contractform />
       </section>
-      <section className=" w-full px-[162px] flex flex-col ">
+      <section className=" max-w-[1596px] w-[83%] mx-[auto] flex flex-col ">
         <div className="FAQ-header flex  justify-between w-full items-center/mobile/ max-mobile:flex-col max-mobile:gap-5  max-mobile:items-start">
           <div className=" flex flex-col">
             <h2
-              className=" font-bold text-font_38 leading-[57px] text-white w-fit
+              className=" font-[700] text-font_38 leading-[57px] text-white w-fit
             /*Laptop*/
         max-laptop:text-[28px]
         max-laptop:leading-[42px]
@@ -58,7 +58,7 @@ const Suport = () => {
         </div>
         <FAQquestion />
       </section>
-      <section className="CTA w-full px-[164px] max-laptop:px-[80px] max-mobile:px-4">
+      <section className="CTA max-w-[1596px] w-[83%] mx-[auto]">
         <div
           className="w-full rounded-xl h-[313px]  overflow-hidden   items-center] bg-cover
           flex   justify-around  items-center
@@ -96,7 +96,7 @@ const Suport = () => {
           <RedBtn name="Start a free trial" />
         </div>
       </section>
-      <Footer />
+      <Footer2 />
     </div>
   );
 };

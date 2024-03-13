@@ -75,7 +75,10 @@ const FAQquestion = () => {
     max-laptop:gap-x-[40px]
     max-laptop:p-0 
     /mobile/
-    max-mobile:grid-cols-1
+    max-mobile:flex
+    max-mobile:flex-col
+    max-mobile:justify-center
+    max-mobile:items-center
     "
     >
       {questionList.map((question, index) => (

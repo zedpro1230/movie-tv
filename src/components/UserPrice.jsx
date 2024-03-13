@@ -27,10 +27,10 @@ const UserPrice = () => {
     SetTabactive(i);
   };
   return (
-    <>
+    <div className="full ">
       <div
-        className="price-header flex flex-row  justify-between w-full 
-      max-mobile:flex-col max-mobile:gap-5 max-mobile:justify-center"
+        className="price-header flex flex-row  justify-between w-full items-end
+      max-mobile:flex-col max-mobile:gap-5 max-mobile:justify-center max-mobile:items-start"
       >
         <div className=" flex flex-col h-[auto]">
           <h2
@@ -98,7 +98,7 @@ const UserPrice = () => {
             max-laptop:p-[40px]
             max-laptop:gap-[40px] 
             /mobile/
-            max-mobile:w-[auto]"
+            max-mobile:w-[auto] max-mobile:p-[20px]"
           >
             <div className="flex flex-col gap-[12px]">
               <p
@@ -153,7 +153,7 @@ const UserPrice = () => {
               "
               >
                 <p
-                  className="text-[18px] leading-[27px] font-[600] text-white text-center
+                  className="text-[18px] leading-[27px] font-[600] text-white text-center text-nowrap
                 max-laptop:text-[11px]
                 max-laptop:leading-[24px]"
                 >
@@ -170,7 +170,7 @@ const UserPrice = () => {
                "
               >
                 <p
-                  className="text-white font-[600] leading-[27px]
+                  className="text-white font-[600] leading-[27px] text-nowrap
                   max-laptop:text-[11px]
                 max-laptop:leading-[24px]"
                 >
@@ -181,7 +181,7 @@ const UserPrice = () => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 export default UserPrice;

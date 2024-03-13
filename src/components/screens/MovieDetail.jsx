@@ -25,7 +25,6 @@ const MovieDetail = () => {
     home font-manrope  bg-app_bg   w-[100vdw] 
     relative flex flex-col justify-center 
      overflow-hidden
-     px-[162px]
     items-center gap-[80px]
     /*Laptop screen*/ 
      max-laptop:gap-[60px]
@@ -35,58 +34,66 @@ const MovieDetail = () => {
     >
       <Header />
       <section
-        className="movie-hero w-[1594px] h-[835px] bg-hero-bg mt-[200px]
+        className="movie-hero max-w-[1594px] mx-[auto] w-[83%] h-[835px] bg-hero-bg mt-[200px] bg-center
       flex items-center  flex-col justify-end"
       >
         <div className=" flex items-center gap-[30px] flex-col justify-end w-[100%]   h-[auto] mb-[20px]">
-          <h1 className=" text-[38px]   font-big_weight leadind-[57px] text-white ">
+          <h1 className=" text-[38px]   font-big_weight leadind-[57px] text-white max-mobile:text-[24px] max-mobile:leading-9">
             Stranger Things
           </h1>
-          <p className=" text-[18px]  font-medium_weight leadind-[27px] text-[#999999] w-[auto] max-w-[1254px]">
+          <p
+            className=" text-[18px]  font-medium_weight leadind-[27px] text-[#999999] w-[auto] max-w-[1254px] text-center
+          max-mobile:hidden"
+          >
             When a young boy vanishes, a small town uncovers a mystery involving
             secret experiments, terrifying supernatural forces and one strange
             little girl.
           </p>
-          <div className="movie_action flex flex-row gap-5">
-            <button
-              className="w-fit py-[14px] px-[27px] flex gap-[10px]
-                    bg-red_bg h-[56px] rounded-lg items-center justify-center hover:opacity-75"
-            >
-              <img alt="" src={icon_play}></img>
-              <p className="text-white font-[600] leading-[27px]">Play Now</p>
-            </button>
-            <button
-              className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
+          <div className="movie_action flex flex-row gap-5 max-mobile:flex-col">
+            <div className="flex">
+              <button
+                className="w-fit py-[14px] px-[27px] flex gap-[10px] 
+                    bg-red_bg h-[56px] rounded-lg items-center justify-center hover:opacity-75
+                    max-mobile:w-[310px]"
+              >
+                <img alt="" src={icon_play}></img>
+                <p className="text-white font-[600] leading-[27px]">Play Now</p>
+              </button>
+            </div>
+            <div className="flex flex-row gap-[10px] max-mobile:justify-center">
+              <button
+                className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
                     flex justify-center items-center p-[14px] border border-solid border-[#262626]"
-            >
-              <img alt="" src={add_icon}></img>
-            </button>
-            <button
-              className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
+              >
+                <img alt="" src={add_icon}></img>
+              </button>
+              <button
+                className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
                     flex justify-center items-center p-[14px] border border-solid border-[#262626]"
-            >
-              <img alt="" src={like_icon}></img>
-            </button>
-            <button
-              className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
+              >
+                <img alt="" src={like_icon}></img>
+              </button>
+              <button
+                className="action_add bg-[#0F0F0F] w-[56px] h-[56px] rounded-lg
                     flex justify-center items-center p-[14px] border border-solid border-[#262626]"
-            >
-              <img alt="" src={sound_icon}></img>
-            </button>
+              >
+                <img alt="" src={sound_icon}></img>
+              </button>
+            </div>
           </div>
         </div>
       </section>
-      <section className="movie-details w-[100%] flex flex-col gap-10">
-        <div className="moive-body-top flex gap-[30px] flex-row">
-          <div className="movie-seasons&ep w-[1062px] flex flex-col gap-8">
-            <div className="seasons">
+      <section className="movie-details max-w-[1594px] mx-[auto] w-[83%] flex flex-col gap-10">
+        <div className="moive-body-top flex gap-[30px] flex-row max-mobile:flex-col">
+          <div className="movie-seasons&ep w-[70%] flex flex-col gap-8 max-mobile:w-full">
+            <div className="seasons w-full">
               <SeasonAndEp />
             </div>
-            <div className="descripton w-[100%] bg-[#1A1A1A] rounded-xl border border-[#262626] border-solid p-[50px] flex flex-col gap-5">
-              <h2 className="des-header text-[18px] text-[#999999] font-[500] leading-[27px]">
+            <div className="descripton w-[100%] bg-[#1A1A1A] rounded-xl border border-[#262626] border-solid p-[50px] flex flex-col gap-5 max-mobile:p-[20px]">
+              <h2 className="des-header text-[18px] text-[#999999] font-[500] leading-[27px] max-mobile:text-[14px] max-mobile:leading-5">
                 Descripton
               </h2>
-              <p className="des-content text-[18px] text-[#FFFFFF] font-[500] leading-[27px] max-w-[auto]">
+              <p className="des-content text-[18px] text-[#FFFFFF] font-[500] leading-[27px] max-w-[auto] max-mobile:text-[14px] max-mobile:leading-5">
                 When a young boy vanishes, a small town uncovers a mystery
                 involving secret experiments, terrifying supernatural forces and
                 one strange little girl.
@@ -94,19 +101,19 @@ const MovieDetail = () => {
             </div>
           </div>
           <ul
-            className="movie-info w-[519px] bg-[#1A1A1A] rounded-xl border border-[#262626] 
-          border-solid p-[30px]  h-fit gap-5 flex flex-col"
+            className="movie-info w-[calc(30%-30px)] bg-[#1A1A1A] rounded-xl border border-[#262626] 
+          border-solid p-[30px]  h-fit gap-5 flex flex-col max-mobile:w-full max-mobile:p-[20px]"
           >
             <li className="released w-[auto] flex flex-col gap-1">
               <div className="heading flex flex-row gap-2 items-center">
                 <span>
                   <img alt="" src={releaseicon} />
                 </span>
-                <span className="text-[#999999] text-[18px] font-[500] leading-[27px]">
+                <span className="text-[#999999] text-[18px] font-[500] leading-[27px] max-mobile:text-[14px] max-mobile:leading-5">
                   Released Year
                 </span>
               </div>
-              <span className="text-[#FFFFFF] text-[20px] leading-[30px] font-[600]">
+              <span className="text-[#FFFFFF] text-[20px] leading-[30px] font-[600] max-mobile:text-[16px] max-mobile:leading-6">
                 2022
               </span>
             </li>
@@ -115,16 +122,16 @@ const MovieDetail = () => {
                 <span>
                   <img alt="" src={languageicon} />
                 </span>
-                <span className="text-[#999999] text-[18px] font-[500] leading-[27px]">
+                <span className="text-[#999999] text-[18px] font-[500] leading-[27px] max-mobile:text-[14px] max-mobile:leading-5">
                   Available languages
                 </span>
               </div>
-              <ul className="flex w-[390px]  flex-wrap gap-[10px]">
+              <ul className="flex w-full  flex-wrap gap-[10px]">
                 <li
                   className="bg-[#141414] w-[90px] h-[43px] flex justify-center items-center 
                 rounded-[6px] border border-[#262626] border-solid"
                 >
-                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     English
                   </span>
                 </li>
@@ -132,7 +139,7 @@ const MovieDetail = () => {
                   className="bg-[#141414] w-[90px] h-[43px] flex justify-center items-center 
                 rounded-[6px] border border-[#262626] border-solid"
                 >
-                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     Hindi
                   </span>
                 </li>
@@ -140,7 +147,7 @@ const MovieDetail = () => {
                   className="bg-[#141414] w-[90px] h-[43px] flex justify-center items-center 
                 rounded-[6px] border border-[#262626] border-solid"
                 >
-                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     Tamil
                   </span>
                 </li>
@@ -148,7 +155,7 @@ const MovieDetail = () => {
                   className="bg-[#141414] w-[90px] h-[43px] flex justify-center items-center 
                 rounded-[6px] border border-[#262626] border-solid"
                 >
-                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     Telegu
                   </span>
                 </li>
@@ -156,24 +163,24 @@ const MovieDetail = () => {
                   className="bg-[#141414] w-[90px] h-[43px] flex justify-center items-center 
                 rounded-[6px] border border-[#262626] border-solid"
                 >
-                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     Kannada
                   </span>
                 </li>
               </ul>
             </li>
-            <li className="ratings flex flex-col gap-3">
+            <li className="ratings flex flex-col gap-3 w-full">
               <div className="heading flex flex-row gap-2 items-center">
                 <span>
                   <img alt="" src={rateicon} />
                 </span>
-                <span className="text-[#999999] text-[18px] font-[500] leading-[27px]">
+                <span className="text-[#999999] text-[18px] font-[500] leading-[27px] max-mobile:text-[14px] max-mobile:leading-5">
                   Ratings
                 </span>
               </div>
-              <div className="w-[100%] flex flex-row gap-4">
-                <div className="IMDB bg-[#141414] rounded-lg border border-[#262626] border-solid w-fit h-fit p-3">
-                  <span className="font-[600] text-[20px] leading-[30px] text-[#FFFFFF]">
+              <div className="w-full flex flex-row gap-4 max-laptop:flex-col max-mobile:flex-row">
+                <div className="IMDB bg-[#141414] rounded-lg border border-[#262626] border-solid w-[50%]  p-3 max-laptop:w-full">
+                  <span className="font-[600] text-[20px] leading-[30px] text-[#FFFFFF] max-mobile:text-[16px] max-mobile:leading-6">
                     IMDB
                   </span>
                   <div className="flex flex-row items-center gap-1">
@@ -214,13 +221,13 @@ const MovieDetail = () => {
                         ></img>
                       </li>
                     </ul>
-                    <span className="font-[500] text-[20px] leading-[30px] text-[#FFFFFF]">
+                    <span className="font-[500] text-[20px] leading-[30px] text-[#FFFFFF] max-mobile:text-[16px] max-mobile:leading-6">
                       4.5
                     </span>
                   </div>
                 </div>
-                <div className="Steam bg-[#141414] rounded-lg border border-[#262626] border-solid w-fit h-fit p-3">
-                  <span className="font-[600] text-[20px] leading-[30px] text-[#FFFFFF]">
+                <div className="Steam bg-[#141414] rounded-lg border border-[#262626] border-solid w-[50%]  p-3 max-laptop:w-full">
+                  <span className="font-[600] text-[20px] leading-[30px] text-[#FFFFFF] max-mobile:text-[16px] max-mobile:leading-6">
                     SteamVibe
                   </span>
                   <div className="flex flex-row items-center gap-1">
@@ -261,7 +268,7 @@ const MovieDetail = () => {
                         ></img>
                       </li>
                     </ul>
-                    <span className="font-[500] text-[20px] leading-[30px] text-[#FFFFFF]">
+                    <span className="font-[500] text-[20px] leading-[30px] text-[#FFFFFF] max-mobile:text-[16px] max-mobile:leading-6">
                       4.0
                     </span>
                   </div>
@@ -273,7 +280,7 @@ const MovieDetail = () => {
                 <span>
                   <img alt="" src={gernesicon} />
                 </span>
-                <span className="text-[#999999] text-[18px] font-[500] leading-[27px]">
+                <span className="text-[#999999] text-[18px] font-[500] leading-[27px] max-mobile:text-[14px] max-mobile:leading-5">
                   Gernes
                 </span>
               </div>
@@ -282,7 +289,7 @@ const MovieDetail = () => {
                   className="bg-[#141414] w-fit h-[43px] flex justify-center items-center 
                 rounded-[6px] border border-[#262626] border-solid  p-[8px]"
                 >
-                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     Sci-Fi Tv
                   </span>
                 </li>
@@ -290,7 +297,7 @@ const MovieDetail = () => {
                   className="bg-[#141414] w-fit h-[43px] flex justify-center items-center 
                 rounded-[6px] border border-[#262626] border-solid p-[8px]"
                 >
-                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     Teen Tv Shows
                   </span>
                 </li>
@@ -298,7 +305,7 @@ const MovieDetail = () => {
                   className="bg-[#141414] w-fit h-[43px] flex justify-center items-center 
                 rounded-[6px] border border-[#262626] border-solid p-[8px]"
                 >
-                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <span className="text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     Us Tv Shows
                   </span>
                 </li>
@@ -306,7 +313,7 @@ const MovieDetail = () => {
             </li>
             <li className="director flex flex-col gap-3">
               <div className="heading flex flex-row gap-2 items-center">
-                <span className="text-[#999999] text-[18px] font-[500] leading-[27px]">
+                <span className="text-[#999999] text-[18px] font-[500] leading-[27px] max-mobile:text-[14px] max-mobile:leading-5">
                   Director
                 </span>
               </div>
@@ -316,10 +323,10 @@ const MovieDetail = () => {
               >
                 <img alt="" src={director}></img>
                 <div className="flex flex-col">
-                  <h3 className="name text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <h3 className="name text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     The Duffer Brothers
                   </h3>
-                  <p className="text-[#999999] text-[18px] font-[500] leading-[24px]">
+                  <p className="text-[#999999] text-[18px] font-[500] leading-[24px] max-mobile:text-[14px] max-mobile:leading-5">
                     From USA
                   </p>
                 </div>
@@ -327,7 +334,7 @@ const MovieDetail = () => {
             </li>
             <li className="music flex flex-col gap-3">
               <div className="heading flex flex-row gap-2 items-center">
-                <span className="text-[#999999] text-[18px] font-[500] leading-[27px]">
+                <span className="text-[#999999] text-[18px] font-[500] leading-[27px] max-mobile:text-[14px] max-mobile:leading-5">
                   Music
                 </span>
               </div>
@@ -337,10 +344,10 @@ const MovieDetail = () => {
               >
                 <img alt="" src={musican}></img>
                 <div className="flex flex-col">
-                  <h3 className="name text-[#ffffff] text-[18px] font-[500] leading-[27px]">
+                  <h3 className="name text-[#ffffff] text-[18px] font-[500] leading-[27px] max-mobile:text-[16px] max-mobile:leading-6">
                     Kyle Dixon
                   </h3>
-                  <p className="text-[#999999] text-[18px] font-[500] leading-[24px]">
+                  <p className="text-[#999999] text-[18px] font-[500] leading-[24px] max-mobile:text-[14px] max-mobile:leading-5">
                     From USA
                   </p>
                 </div>
@@ -348,12 +355,12 @@ const MovieDetail = () => {
             </li>
           </ul>
         </div>
-        <div className="Cast&Reviews flex gap-[30px] flex-col w-[1062px]">
+        <div className="Cast&Reviews flex gap-[30px] flex-col w-[70%] max-mobile:w-full">
           <Cast />
           <Reviews />
         </div>
       </section>
-      <section className="CTA w-full">
+      <section className="CTA max-w-[1596px] w-[83%] mx-[auto]">
         <div
           className="w-full rounded-xl h-[313px]  overflow-hidden   items-center] bg-cover
           flex   justify-around  items-center

@@ -22,6 +22,7 @@ import ShowTrendingSlider from "../slider_movie_page/ShowtrendingSlider";
 import NewShowSlider from "../slider_movie_page/NewShowSlider";
 import RedBtn from "../RedBtn";
 import Footer2 from "../Footer2";
+import { useState } from "react";
 const Movie = () => {
   const trendMovies = [
     {
@@ -139,19 +140,25 @@ const Movie = () => {
       rate: 4,
     },
   ];
+  const [tabKinds, SetTabKinds] = useState("Movie");
+  const kinds = ["Movie", "Show"];
+  const handleTab = (i) => {
+    SetTabKinds(i);
+    console.log(SetTabKinds(i));
+  };
   return (
     <div
       className="home font-manrope  bg-app_bg w-[100vdw]  
-                    h-[auto] flex flex-col gap-[80px] px-[162px]"
+                    h-[auto] flex flex-col gap-[80px]"
     >
       <Header />
-      <section className="hero_movie_section  mt-[170px]  w-full">
+      <section className="hero_movie_section  max-w-[1594px] w-[83%] mx-[auto] mt-[200px]">
         <HeroMoviesilder />
       </section>
       <section
-        className="movie  w-full h-[auto] border-[#1F1F1F] 
+        className="movie  max-w-[1594px] w-[83%] mx-[auto] h-[auto] border-[#1F1F1F] 
       border border-solid  rounded-lg relative p-[50px]
-      flex flex-col gap-[100px] "
+      flex flex-col gap-[100px]  max-mobile:hidden"
       >
         <div
           className="w-fit py-[14px] px-[27px] flex gap-[10px]
@@ -161,44 +168,29 @@ const Movie = () => {
           <p className="text-white font-[600] leading-[27px] ">Movies</p>
         </div>
         <div className="Genres">
-          <h2 className="text-[38px] font-big_weight leading-[57px] text-white mb-[50px]">
-            Our Genres
-          </h2>
           <GenresSlider id={1} />
         </div>
 
         <div className="GenresTop10">
-          <h2 className="text-[38px] font-big_weight leading-[57px] text-white mb-[50px]">
-            Popular Top 10 In Genres
-          </h2>
           <GenresSliderTop10 sliderId={1} />
         </div>
 
         <div className="movetrend">
-          <h2 className="text-[38px] font-big_weight leading-[57px] text-white mb-[50px]">
-            Trending Now
-          </h2>
           <MovieTrendingSlider id={1} trend={trendMovies} />
         </div>
 
         <div className="released-movie">
-          <h2 className="text-[38px] font-big_weight leading-[57px] text-white mb-[50px]">
-            New Releases
-          </h2>
-          <NewReleasesSlider />
+          <NewReleasesSlider id={1} />
         </div>
 
         <div className="Must-Watch-movie">
-          <h2 className="text-[38px] font-big_weight leading-[57px] text-white mb-[50px]">
-            Must - Watch Movies
-          </h2>
           <MustWatchMovieSlider id={1} type={mustWatchMovvies} />
         </div>
       </section>
       <section
-        className="show  w-full h-[auto] border-[#1F1F1F] 
+        className="show  max-w-[1594px] w-[83%] mx-[auto] h-[auto] border-[#1F1F1F] 
       border border-solid  rounded-lg relative p-[50px]
-      flex flex-col gap-[100px] "
+      flex flex-col gap-[100px] max-mobile:hidden "
       >
         <div
           className="w-fit py-[14px] px-[27px] flex gap-[10px]
@@ -208,16 +200,10 @@ const Movie = () => {
           <p className="text-white font-[600] leading-[27px] ">Shows</p>
         </div>
         <div className="Genres">
-          <h2 className="text-[38px] font-big_weight leading-[57px] text-white mb-[50px]">
-            Our Genres
-          </h2>
           <GenresSlider id={2} />
         </div>
 
         <div className="GenresTop10">
-          <h2 className="text-[38px] font-big_weight leading-[57px] text-white mb-[50px]">
-            Popular Top 10 In Genres
-          </h2>
           <GenresSliderTop10 sliderId={2} />
         </div>
         <div className="Trending-show">
@@ -233,13 +219,50 @@ const Movie = () => {
           <NewShowSlider id={1} />
         </div>
         <div className="Must-Watch-show">
-          <h2 className="text-[38px] font-big_weight leading-[57px] text-white mb-[50px]">
-            Must - Watch Shows
-          </h2>
-          <MustWatchMovieSlider id={2} type={mustWatchShows} />
+          <MustWatchMovieSlider id={2} type={mustWatchShows} kind="movie" />
         </div>
       </section>
-      <section className="CTA w-full ">
+      <section className="mobile-view-slider max-w-[90%] mx-[auto]  hidden max-mobile:flex max-mobile:flex-col">
+        <div
+          className="price-tabs w-[237px] h-[75px] bg-[#0F0F0F] rounded-[10px] 
+        border border-[#262626] boder-solid p-[10px] flex flex-row justify-center items-center
+        mx-[auto] mb-[20px]
+        /*laptop*/
+        max-laptop:w-[190px]
+        max-laptop:h-[61px]
+        max-laptop:p-2"
+        >
+          {kinds.map((i, index) => (
+            <div
+              key={index}
+              className={`w-[118px] h-[55px] px-6 py-[14px] flex justify-center  items-center rounded-[10px] cursor-pointer max-laptop:w-[94px] max-laptop:h-[45px] max-laptop:px-5 max-laptop:py-3 ${
+                tabKinds === i ? "bg-[#1F1F1F]" : ""
+              }`}
+              onClick={() => handleTab(i)}
+            >
+              <p
+                className={`text-[18px] font-medium_weight leading-[27px] max-laptop:text-[14px] max-laptop:leading-[21px] ${
+                  tabKinds === i ? "text-white" : "text-[#999999]"
+                }`}
+              >
+                {i}
+              </p>
+            </div>
+          ))}
+        </div>
+        {tabKinds === "Movie" ? (
+          <div className="flex flex-col gap-[40px]">
+            <GenresSlider id={3} />
+            <GenresSliderTop10 sliderId={3} />
+            <MovieTrendingSlider id={3} trend={trendMovies} />
+            <NewReleasesSlider id={2} />
+            <MustWatchMovieSlider id={3} type={mustWatchMovvies} kind="movie" />
+          </div>
+        ) : (
+          <div>Eheheheheheh</div>
+        )}
+      </section>
+      <section className="CTA  max-w-[1594px] w-[83%] mx-[auto] ">
         <div
           className="w-full rounded-xl h-[313px]  overflow-hidden   items-center] bg-cover
           flex   justify-around  items-center

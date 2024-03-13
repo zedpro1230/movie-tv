@@ -3,7 +3,7 @@ import fb from "../assets/imgs/logos/fb.svg";
 import inl from "../assets/imgs/logos/in.svg";
 const Footer2 = () => {
   return (
-    <div className="w-full flex flex-col">
+    <div className=" max-w-[1594px] w-[83%] mx-[auto] flex flex-col">
       <ul
         className="footer-top flex flex-row w-full justify-between 
       max-mobile:grid max-mobile:grid-cols-2 max-mobile:gap-y-8"

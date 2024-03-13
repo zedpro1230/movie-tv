@@ -45,7 +45,7 @@ module.exports = {
     screens: {
       laptop: "1420px",
       mediumdesktop: "1730px",
-      mobile: "540px",
+      mobile: "1105px",
     },
   },
   plugins: [],

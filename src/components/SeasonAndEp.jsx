@@ -159,8 +159,8 @@ const SeasonAndEp = () => {
     });
   };
   return (
-    <div className="bg-[#1A1A1A] flex flex-col px-[30px] rounded-[12px] pb-[30px] border border-[#262626] border-solid w-[1062px]">
-      <h2 className=" text-[#FFFFFF] text-[24px]  my-[40px]">
+    <div className="bg-[#1A1A1A] flex flex-col px-[30px] rounded-[12px] pb-[30px] border border-[#262626] border-solid w-full max-mobile:px-[10px]">
+      <h2 className=" text-[#FFFFFF] text-[24px]  my-[40px] max-mobile:text-[18px] max-mobile:leading-7 ">
         Sesons and Episodes
       </h2>
       <ul className=" flex flex-col gap-5 h-[auto] w-[auto]">
@@ -173,10 +173,10 @@ const SeasonAndEp = () => {
           >
             <div className="flex flex-row  justify-between w-[100%]">
               <div className="flex flex-row items-center gap-4">
-                <h3 className="text-[24px] text-[#FFFFFF] leading-9 font-[600]">
+                <h3 className="text-[24px] text-[#FFFFFF] leading-9 font-[600] max-mobile:text-[16px] max-mobile:leading-6">
                   {season.season}
                 </h3>
-                <p className="text-[18px] font-medium_weight text-[#999999] leading-7">
+                <p className="text-[18px] font-medium_weight text-[#999999] leading-7 max-mobile:text-[14px] max-mobile:left-5">
                   {season.totalEp} episodes
                 </p>
               </div>
@@ -199,13 +199,16 @@ const SeasonAndEp = () => {
             <ul
               className={`eplists ${
                 showEpisodes[index]
-                  ? "w-[922px] flex flex-col gap-5 mt-[30px]"
+                  ? "w-full flex flex-col gap-5 mt-[30px]"
                   : "hidden"
               }`}
             >
               {season.episodes.map((ep, index) => (
-                <li className="flex flex-row items-center justify-between border-t-[1px] border-[#262626] pt-[40px] pb-[30px]">
-                  <div className="ep-header flex flex-row   items-center w-[250px] justify-between">
+                <li className="flex flex-row items-center  justify-between border-t-[1px] border-[#262626] pt-[40px] pb-[30px] gap-5 max-laptop:items-start max-mobile:flex-col">
+                  <div
+                    className="ep-header flex flex-row   items-center w-[25%] gap-[40px] max-laptop:flex-col max-laptop:gap-5 max-mobile:flex-row-reverse max-mobile:w-full
+                  max-mobile:justify-end"
+                  >
                     <span className="text-[#999999] text-[30px] leading-[45px] font-[600]">
                       {ep.episode}
                     </span>
@@ -224,27 +227,37 @@ const SeasonAndEp = () => {
                       </button>
                     </div>
                   </div>
-                  <div className="ep-content flex flex-col w-[610px] gap-5">
-                    <div className="content-header flex flex-row items-center justify-between">
-                      <h3 className="font-[600] text-[20px] leading-[30px] text-[#FFFFFF]">
+                  <div className="ep-content flex flex-col w-[75%] gap-5">
+                    <div className="content-header flex flex-row gap-5 items-center justify-between max-mobile:flex-col-reverse max-mobile:items-start">
+                      <h3
+                        className="font-[600] text-[20px] leading-[30px] text-[#FFFFFF]
+                       max-laptop:text-[18px] max-laptop:leading-[27px]  max-mobile:text-[16px] max-mobile:leading-6 "
+                      >
                         {ep.chapter}
                       </h3>
                       <div
                         className="flex flex-row w-[98px] h-[40px] items-center gap-[10px] justify-center
-                      bg-[#141414] rounded-[8px] border border-[#262626] border-solid"
+                      bg-[#141414] rounded-[8px] border border-[#262626] border-solid
+                      max-laptop:w-[80px] max-laptop:h-[33px]"
                       >
                         <img
                           alt=""
                           src={duration}
                           className="w-[18px] h-[18px]"
                         ></img>
-                        <span className="text-[#999999] text-[16px] leading-[24px] font-[500]">
+                        <span
+                          className="text-[#999999] text-[16px] leading-[24px] font-[500]
+                        max-laptop:text-[14px] max-laptop:leading-[21px]"
+                        >
                           {ep.duration} min
                         </span>
                       </div>
                     </div>
                     <div>
-                      <p className="font-[400] text-[18px] leading-[27px] text-[#999999]">
+                      <p
+                        className="font-[400] text-[18px] leading-[27px] text-[#999999]
+                      max-laptop:text-[16px] max-laptop:leading-[24px] max-mobile:hidden"
+                      >
                         {ep.describe}
                       </p>
                     </div>
