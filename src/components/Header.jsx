@@ -7,7 +7,7 @@ import mobieBtn from "../assets/imgs/logos/mobile_show.svg";
 import close from "../assets/imgs/logos/close.svg";
 const Header = () => {
   const tabs = useMemo(
-    () => ["Home", "Movies & Shows", "Suport", "Subscriptions"],
+    () => ["Home", "Movies & Shows", "Support", "Subscriptions"],
     []
   );
   const linkTabs = useMemo(

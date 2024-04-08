@@ -33,7 +33,7 @@ const Subscriptions = () => {
                 Features
               </th>
               <th className="h-[90px] border-[#262626] border">Basic</th>
-              <th className="h-[90px] border-[#262626] border">Standar</th>
+              <th className="h-[90px] border-[#262626] border">Standard</th>
               <th className="h-[90px] border-[#262626] border rounded-tr-xl">
                 premium
               </th>

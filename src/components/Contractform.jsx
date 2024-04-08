@@ -1,6 +1,17 @@
 import indiaIcon from "../assets/imgs/support/india.svg";
+
 import RedBtn from "./RedBtn";
+import CustomOption from "./CustomOption";
+
+import ReactSelect from "react-select";
+
 const Contractform = () => {
+  const options = [
+    { value: "option1", label: "Option 1", iconSrc: indiaIcon },
+    { value: "option2", label: "Option 2", iconSrc: indiaIcon },
+    { value: "option3", label: "Option 3", iconSrc: indiaIcon },
+  ];
+
   return (
     <form
       className="contract-form w-[calc(65%-80px)]  bg-[#0F0F0F] border border-solid border-[#262626]  
@@ -53,23 +64,45 @@ const Contractform = () => {
             Phone number
           </label>
           <div className="flex flex-row gap-4 w-full">
-            <select
+            {/* <select
               id="country"
               name="country"
+              value={selectedOption}
+              onChange={handleChange}
               className="block w-[20%] h-[67px]  border-0 bg-[#141414]  ring-2 ring-inset ring-[#262626]   rounded-lg p-[20px]
           focus:ring-2 focus:ring-inset focus:ring-[#387ADF] focus:outline-0 text-[#FFFFFF] font-[400] max-laptop:text-[16px] max-laptop:leading-6
           "
             >
-              <option>
-                <img alt="" src={indiaIcon} />
-              </option>
-              <option>
-                <img alt="" src={indiaIcon} />
-              </option>
-              <option>
-                <img alt="" src={indiaIcon} />
-              </option>
-            </select>
+              {option.map((option, index) => (
+                <CustomOption key={index} {...option} />
+              ))}
+            </select> */}
+            <ReactSelect
+              options={options}
+              formatOptionLabel={CustomOption}
+              isSearchable={false}
+              defaultValue={options[0]}
+              styles={{
+                control: (baseStyle, state) => ({
+                  ...baseStyle,
+                  backgroundColor: "#141414",
+                  width: "100%",
+                  height: "67px",
+                  borderColor: "#262626",
+                  margin: "0 0 0 0",
+                  padding: "0 0 0 0",
+                }),
+                option: (baseStyle, state) => ({
+                  ...baseStyle,
+                  backgroundColor: state.isSelected
+                    ? "#141414"
+                    : state.isFocused
+                    ? "#262626"
+                    : "inherit",
+                }),
+              }}
+              // ... other props
+            />
             <input
               type="text"
               name="lastName"
@@ -97,9 +130,10 @@ const Contractform = () => {
             type="checkbox"
             id="myCheckbox"
             name="myCheckbox"
-            className="w-[28px] h-[28px] bg-[#0F0F0F]  border border-[#262626] border-solid
+            className="w-[24px] h-[24px] accent-[#262626]  ring-2 ring-inset ring-[#262626] focus:ring-2 focus:ring-inset focus:ring-[#262626] focus:outline-0
           "
           />
+
           <p className="text-[18px] leading-[27px] font-[400] text-[#999999] max-laptop:text-[16px] max-laptop:leading-6">
             I agree with Terms of Use and Privacy Policy
           </p>

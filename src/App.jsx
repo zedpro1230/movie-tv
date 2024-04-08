@@ -4,6 +4,7 @@ import MovieDetail from "./components/screens/MovieDetail";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Suport from "./components/screens/Suport";
 import Subscriptions from "./components/screens/Subscriptions";
+
 function App() {
   return (
     <BrowserRouter>

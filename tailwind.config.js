@@ -22,7 +22,7 @@ module.exports = {
     colors: {
       black_12: "#1F1F1F",
       white: "#FFFFFF",
-
+      bg3: "#141414",
       text_grey: "#BFBFBF",
       text_grey_2: "#999999",
       gradient_bg1: "rgba(20, 20, 20, 1)",

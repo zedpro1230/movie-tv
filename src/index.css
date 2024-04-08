@@ -82,12 +82,12 @@
 }
 
 .genrestop10-slider .swiper-slide{
-    width: 352px !important;
-    height: 378px !important;
+    width:auto !important;
+    height: auto !important;
 }
 .movie-trend .swiper-slide{
-  width: 283px !important;
-  height: 378px !important;
+  width: auto !important;
+  height: auto !important;
 }
 
 .genrestop10_arrows_1 .swiper-pagination-bullet {

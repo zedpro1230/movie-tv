@@ -1,11 +1,6 @@
-import newmovie1 from "../../assets/imgs/moviepage/new1.png";
-import newmovie2 from "../../assets/imgs/moviepage/new2.png";
-import newmovie3 from "../../assets/imgs/moviepage/new3.png";
-import newmovie4 from "../../assets/imgs/moviepage/new4.png";
-import newmovie5 from "../../assets/imgs/moviepage/new5.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import SwiperCore from "swiper";
 import { useRef } from "react";
@@ -17,42 +12,27 @@ import "swiper/swiper-bundle.css";
 //
 import arrow_right from "../../assets/imgs/logos/arrow_right.svg";
 import arrow_left from "../../assets/imgs/logos/arrow_left.svg";
+import axios from "axios";
+import { config } from "../../config/MovieToken";
 
 const NewReleasesSlider = ({ id }) => {
-  const newReleasesMoivies = [
-    {
-      thumbnail: newmovie1,
-      releaseDay: "14 April 2023",
-    },
-    {
-      thumbnail: newmovie2,
-      releaseDay: "22 April 2023",
-    },
-    {
-      thumbnail: newmovie3,
-      releaseDay: "13 April 2023",
-    },
-    {
-      thumbnail: newmovie4,
-      releaseDay: "19 April 2023",
-    },
-    {
-      thumbnail: newmovie5,
-      releaseDay: "11 April 2023",
-    },
-    {
-      thumbnail: newmovie3,
-      releaseDay: "12 April 2023",
-    },
-    {
-      thumbnail: newmovie4,
-      releaseDay: "19 April 2023",
-    },
-    {
-      thumbnail: newmovie2,
-      releaseDay: "22 April 2023",
-    },
-  ];
+  const [release, setRelease] = useState([]);
+  const [key, setKey] = useState(null);
+  useEffect(() => {
+    const releaseAPI = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
+          config
+        );
+        setRelease(response.data.results);
+        setKey("1");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    releaseAPI();
+  }, []);
   const sliderRef = useRef();
   SwiperCore.use([Pagination]);
   return (
@@ -114,14 +94,14 @@ const NewReleasesSlider = ({ id }) => {
 
       <Swiper
         className="movie-trend w-full  flex  mt-[40px]"
-        style={{ height: "378px" }}
         modules={[Navigation, Pagination]}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
+        key={key}
         onSwiper={(swiper) => (sliderRef.current = swiper)}
-        loop={true}
+        // loop={true}
         pagination={{
           clickable: true,
           //el: ".genrestop10_arrows",
@@ -143,16 +123,22 @@ const NewReleasesSlider = ({ id }) => {
           1421: {
             spaceBetween: 20,
             slidesPerView: 5,
-            slidesPerGroup: 2,
+            slidesPerGroup: 4,
           },
           1920: {
             spaceBetween: 30,
             slidesPerView: 5,
-            slidesPerGroup: 2,
+            slidesPerGroup: 4,
           },
         }}
       >
-        {newReleasesMoivies.map((type, index) => (
+        <div className=" w-[200px] h-[480px]  absolute top-[0] left-[0] z-20  bg-gradient-to-r  from-bg3 to-[transparent]">
+          {" "}
+        </div>
+        <div className=" w-[200px] h-[480px]   absolute top-[0] right-[0] z-20  bg-gradient-to-l  from-bg3 to-[transparent]">
+          {" "}
+        </div>
+        {release?.map((type, index) => (
           <SwiperSlide
             key={index}
             className=" 
@@ -165,9 +151,13 @@ const NewReleasesSlider = ({ id }) => {
           >
             <div
               className="flex flex-wrap 
-            w-[243px] h-[270px]  relative gap-5"
+            w-[243px]  relative gap-5"
             >
-              <img alt="" src={type.thumbnail}></img>
+              <img
+                alt=""
+                src={`https://image.tmdb.org/t/p/w500${type.poster_path}`}
+                className=" rounded-xl"
+              ></img>
               <div className="flex flex-row   justify-between w-full">
                 <div
                   className="rounded-[51px] bg-[#141414] w-full p-[10px] 
@@ -178,7 +168,7 @@ const NewReleasesSlider = ({ id }) => {
                     Released at
                   </span>
                   <span className="  text-[#BFBFBF] text-[16px] leading-[24px]">
-                    {type.releaseDay}
+                    {type.release_date}
                   </span>
                 </div>
               </div>

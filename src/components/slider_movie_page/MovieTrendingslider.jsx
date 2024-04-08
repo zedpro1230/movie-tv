@@ -3,7 +3,7 @@ import time from "../../assets/imgs/logos/time.svg";
 import view from "../../assets/imgs/logos/view.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import SwiperCore from "swiper";
 import { useRef } from "react";
@@ -12,14 +12,32 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/swiper-bundle.css";
+import { config } from "../../config/MovieToken";
 //
 import arrow_right from "../../assets/imgs/logos/arrow_right.svg";
 import arrow_left from "../../assets/imgs/logos/arrow_left.svg";
+import axios from "axios";
 const MovieTrendingSlider = ({ id, trend }) => {
   const navigate = useNavigate();
   const sliderRef = useRef();
   SwiperCore.use([Pagination]);
-
+  const [topRateMovies, setTopRateMovies] = useState([]);
+  const [key, setKey] = useState(null);
+  useEffect(() => {
+    const movieTrendAPI = async () => {
+      try {
+        const reponse = await axios.get(
+          "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
+          config
+        );
+        setTopRateMovies(reponse.data.results);
+        setKey("1");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    movieTrendAPI();
+  }, []);
   return (
     <div className="relative   flex flex-col gap-[40px]">
       <div className="flex items-center justify-between max-mobile:flex-col">
@@ -77,12 +95,12 @@ const MovieTrendingSlider = ({ id, trend }) => {
         </div>
       </div>
       <Swiper
-        className="movie-trend w-full  flex  "
-        style={{ height: "378px" }}
+        key={key}
+        className="movie-trend w-full  flex relative"
         modules={[Navigation, Pagination]}
         navigation={false}
         onSwiper={(swiper) => (sliderRef.current = swiper)}
-        loop={true}
+        // loop={true}
         pagination={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -106,16 +124,22 @@ const MovieTrendingSlider = ({ id, trend }) => {
           1421: {
             spaceBetween: 20,
             slidesPerView: 5,
-            slidesPerGroup: 2,
+            slidesPerGroup: 4,
           },
           1920: {
             spaceBetween: 30,
             slidesPerView: 5,
-            slidesPerGroup: 2,
+            slidesPerGroup: 4,
           },
         }}
       >
-        {trend.map((type, index) => (
+        <div className=" w-[200px] h-[480px]  absolute top-[0] left-[0] z-20  bg-gradient-to-r  from-bg3 to-[transparent]">
+          {" "}
+        </div>
+        <div className=" w-[200px] h-[480px]   absolute top-[0] right-[0] z-20  bg-gradient-to-l  from-bg3 to-[transparent]">
+          {" "}
+        </div>
+        {topRateMovies.map((movie, index) => (
           <SwiperSlide
             key={index}
             className=" 
@@ -131,21 +155,25 @@ const MovieTrendingSlider = ({ id, trend }) => {
           >
             <div
               className="flex flex-col
-            w-full   relative gap-5"
+            w-fit   relative gap-5"
             >
-              <img alt="" src={type.img}></img>
+              <img
+                alt=""
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                className=" w-[240px] h-[350px] rounded-xl"
+              ></img>
               <div className="flex flex-row   justify-between w-full">
                 <div className="rounded-[51px] bg-[#141414] w-[auto] p-[10px] border border-[#262626] border-solid flex gap-2">
                   <img alt="" src={time} />
                   <span className="  text-[#999999] text-[16px] leading-[24px]">
-                    {type.time}
+                    {movie.release_date}
                   </span>
                 </div>
 
                 <div className="rounded-[51px] bg-[#141414] w-[auto] p-[10px] border border-[#262626] border-solid flex gap-2">
                   <img alt="" src={view} />
                   <span className="  text-[#999999] text-[16px] leading-[24px]">
-                    {type.view}
+                    {movie.vote_count}
                   </span>
                 </div>
               </div>

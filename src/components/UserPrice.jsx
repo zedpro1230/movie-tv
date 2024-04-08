@@ -11,7 +11,7 @@ const UserPrice = () => {
       pricePackage: 9.99,
     },
     {
-      name: "Standar Plan",
+      name: "Standard Plan",
       describe:
         "Access to a wider selection of movies and shows, including most new releases and exclusive content",
       pricePackage: 12.99,

@@ -4,6 +4,7 @@ import Contractform from "../Contractform";
 import FAQquestion from "../FAQquestion";
 import Footer2 from "../Footer2";
 import RedBtn from "../RedBtn";
+
 const Suport = () => {
   return (
     <div className="home font-manrope  bg-app_bg w-full h-[auto] relative flex flex-col gap-[80px]">

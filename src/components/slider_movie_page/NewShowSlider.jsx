@@ -114,7 +114,7 @@ const NewShowSlider = ({ id }) => {
         modules={[Navigation, Pagination]}
         navigation={false}
         onSwiper={(swiper) => (sliderRef.current = swiper)}
-        loop={true}
+        // loop={true}
         pagination={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",

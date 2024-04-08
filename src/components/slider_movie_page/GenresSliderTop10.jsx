@@ -9,63 +9,35 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/swiper-bundle.css";
+import axios from "axios";
+import { config } from "../../config/MovieToken";
+import { useState, useEffect } from "react";
 //
 import arrow_right from "../../assets/imgs/logos/arrow_right.svg";
 import arrow_left from "../../assets/imgs/logos/arrow_left.svg";
-import topaction1 from "../../assets/imgs/moviepage/topaction1.png";
-import topaction2 from "../../assets/imgs/moviepage/topaction2.png";
-import topaction3 from "../../assets/imgs/moviepage/topaction3.png";
-import topaction4 from "../../assets/imgs/moviepage/topaction4.png";
-import topad1 from "../../assets/imgs/moviepage/topad1.png";
-import topad2 from "../../assets/imgs/moviepage/topad2.png";
-import topad3 from "../../assets/imgs/moviepage/topad3.png";
-import topad4 from "../../assets/imgs/moviepage/topad4.png";
-import topcom1 from "../../assets/imgs/moviepage/topcom1.png";
-import topcom2 from "../../assets/imgs/moviepage/topcom2.png";
-import topcom3 from "../../assets/imgs/moviepage/topcom3.png";
-import topcom4 from "../../assets/imgs/moviepage/topcom4.png";
-import topdra1 from "../../assets/imgs/moviepage/topdra1.png";
-import topdra2 from "../../assets/imgs/moviepage/topdra2.png";
-import topdra3 from "../../assets/imgs/moviepage/topdra3.png";
-import topdra4 from "../../assets/imgs/moviepage/topdra4.png";
 
 const GenresSliderTop10 = ({ sliderId }) => {
   const sliderRef = useRef();
   SwiperCore.use([Pagination]);
-  const listTop10 = [
-    {
-      name: "Action",
-      list: [topaction1, topaction2, topaction3, topaction4],
-    },
-    {
-      name: "Adventure",
-      list: [topad1, topad2, topad3, topad4],
-    },
-    {
-      name: "Comedy",
-      list: [topcom1, topcom2, topcom3, topcom4],
-    },
-    {
-      name: "Dramma",
-      list: [topdra1, topdra2, topdra3, topdra4],
-    },
-    {
-      name: "Action",
-      list: [topaction1, topaction2, topaction3, topaction4],
-    },
-    {
-      name: "Adventure",
-      list: [topad1, topad2, topad3, topad4],
-    },
-    {
-      name: "Comedy",
-      list: [topcom1, topcom2, topcom3, topcom4],
-    },
-    {
-      name: "Dramma",
-      list: [topdra1, topdra2, topdra3, topdra4],
-    },
-  ];
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [key, setKey] = useState(null);
+  useEffect(() => {
+    const genresAPI = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+          config
+        );
+        setPopularMovies(response.data.results);
+        setKey("1");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    genresAPI();
+  }, []);
+  console.log(popularMovies);
+
   return (
     <div className="relative  flex flex-col gap-[40px]">
       <div className="flex flex-row items-center justify-between max-mobile:flex-col">
@@ -124,12 +96,12 @@ const GenresSliderTop10 = ({ sliderId }) => {
       </div>
 
       <Swiper
+        key={key}
         className="genrestop10-slider w-full  flex  "
-        style={{ height: "378px" }}
         modules={[Navigation, Pagination]}
         navigation={false}
         onSwiper={(swiper) => (sliderRef.current = swiper)}
-        loop={true}
+        // loop={true}
         pagination={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -139,30 +111,36 @@ const GenresSliderTop10 = ({ sliderId }) => {
         }}
         breakpoints={{
           345: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 20,
-            slidesPerGroup: 1,
+            slidesPerGroup: 4,
             loop: false,
           },
           541: {
             spaceBetween: 20,
-            slidesPerView: 4,
-            slidesPerGroup: 2,
+            slidesPerView: 3,
+            slidesPerGroup: 4,
             loop: false,
           },
           1421: {
             spaceBetween: 20,
             slidesPerView: 4,
-            slidesPerGroup: 2,
+            slidesPerGroup: 4,
           },
           1920: {
             spaceBetween: 30,
             slidesPerView: 5,
-            slidesPerGroup: 2,
+            slides: 4,
           },
         }}
       >
-        {listTop10.map((type, index) => (
+        <div className=" w-[200px] h-[480px]  absolute top-[0] left-[0] z-20  bg-gradient-to-r  from-bg3 to-[transparent]">
+          {" "}
+        </div>
+        <div className=" w-[200px] h-[480px]   absolute top-[0] right-[0] z-20  bg-gradient-to-l  from-bg3 to-[transparent]">
+          {" "}
+        </div>
+        {popularMovies.map((type, index) => (
           <SwiperSlide
             key={index}
             className=" 
@@ -173,21 +151,20 @@ const GenresSliderTop10 = ({ sliderId }) => {
            "
           >
             <div
-              className="grid grid-cols-2 w-full gap-1 relative
+              className=" w-[241px]  relative h-fit
             
             "
             >
-              {type.list.map((movielist, index) => (
-                <img
-                  key={index}
-                  src={movielist}
-                  alt="..."
-                  className="w-full h-[121px]"
-                />
-              ))}
+              <img
+                key={index}
+                src={`https://image.tmdb.org/t/p/w500${type.poster_path}`}
+                alt="..."
+                className="w-full h-[300px] rounded-xl"
+              />
+
               <div
                 className="fade-bg custom-gradient-bottom-catgories 
-              absolute w-full h-[248px] top-0 left-0 right-0
+              absolute w-full h-[300px] top-0 left-0 right-0
              "
               ></div>
             </div>
@@ -199,8 +176,8 @@ const GenresSliderTop10 = ({ sliderId }) => {
                 >
                   Top 10 in
                 </span>
-                <span className=" text-white leadding-[27px] text-font_18 font-[600] max-laptop:text-[16px] max-laptop:leading-6">
-                  {type.name}
+                <span className=" text-white leadding-[27px] max-w-[180px] w-[auto] text-font_18 font-[600] max-laptop:text-[16px] max-laptop:leading-6">
+                  {type.title}
                 </span>
               </div>
 
